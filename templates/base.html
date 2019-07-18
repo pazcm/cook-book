@@ -18,35 +18,50 @@
     <body>
         <!-- Header - Navigation bar -->
         <nav>
-            
-   
-        </nav>
-        
-        <ul id="slide-out" class="sidenav">
-            <li>
-                <div class="user-view">
-                    <div class="background">
-                        <img src="static/images/yellow-unsplash.jpg">
+            <div class="nav-wrapper">
+            <!--sidenav-->
+            <ul id="slide-out" class="sidenav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="static/images/yellow-unsplash.jpg">
+                        </div>
+                        <a href="#user"><img class="circle" src="static/images/toa-unsplash.jpg"></a>
+                        <a href="#name"><span class="white-text name">Mary Jane</span></a>
+                        <a href="#email"><span class="white-text email">maryjane@example.com</span></a>
                     </div>
-                    <a href="#user"><img class="circle" src="static/images/toa-unsplash.jpg"></a>
-                    <a href="#name"><span class="white-text name">Mary Jane</span></a>
-                    <a href="#email"><span class="white-text email">maryjane@example.com</span></a>
-                </div>
-            </li>
-            <li><a href="#!"><i class="material-icons">local_dining</i>Link Logo Cook Book</a></li>
-            
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li><a class="subheader">Browse</a></li>
-            <li><a class="waves-effect" href="#!">Recipes</a></li>
-            <li><a class="waves-effect" href="#!">My Recipes</a></li>
-            <li><a class="waves-effect" href="#!">Add Recipes</a></li>
-        </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        
-        <!-- End navbar -->
-        
+                </li>
+                <li><a href="#!"><i class="material-icons">local_dining</i>Link Logo Cook Book</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="subheader">Browse</a></li>
+                <li><a class="waves-effect" href="#!">Recipes</a></li>
+                <li><a class="waves-effect" href="#!">My Recipes</a></li>
+                <li><a class="waves-effect" href="#!">Add Recipes</a></li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <!--end sidenav-->
+                
+            <!--navbar menu-->
+            <a href="#" class="brand-logo center">Logo</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="templates/recipes.html">Recipes</a></li>
+                <li><a href="templates/my-recipes.html">My Recipes</a></li>
+                <li class="active"><a href="templates/add-recipes.html">Add Recipes</a></li>
+            </ul>
+                <!--<div class="search-box">-->
+                <!--    <form>-->
+                <!--        <div class="input-field right">-->
+                <!--          <input id="search" type="search" required>-->
+                <!--          <label class="label-icon" for="search"><i class="material-icons">search</i></label>-->
+                <!--          <i class="material-icons">close</i>-->
+                <!--        </div>-->
+                <!--  </form>-->
+                <!--</div>-->
+            </div>
+            <!--end navebar menu-->
+        </nav>
         <h1>Is connected, let's Go!</h1>
         {% block content %}
         {% endblock %}
@@ -63,5 +78,6 @@
                     $('.sidenav').sidenav();
                 });
         </script>
+        
     </body>
 </html>
