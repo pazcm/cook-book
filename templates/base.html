@@ -5,24 +5,63 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!--fonts icons-->
+        <!-- fonts icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!--Materialize-->
+        <!-- Materialize -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- custom CSS -->
-        <link rel="stylesheet" href="{{ url_for('assets', filename='css/style.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
         
         <title>Cook Book app</title>
     </head>
     <body>
+        <!-- Header - Navigation bar -->
+        <nav>
+            
+   
+        </nav>
+        
+        <ul id="slide-out" class="sidenav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="static/images/yellow-unsplash.jpg">
+                    </div>
+                    <a href="#user"><img class="circle" src="static/images/toa-unsplash.jpg"></a>
+                    <a href="#name"><span class="white-text name">Mary Jane</span></a>
+                    <a href="#email"><span class="white-text email">maryjane@example.com</span></a>
+                </div>
+            </li>
+            <li><a href="#!"><i class="material-icons">local_dining</i>Link Logo Cook Book</a></li>
+            
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a class="subheader">Browse</a></li>
+            <li><a class="waves-effect" href="#!">Recipes</a></li>
+            <li><a class="waves-effect" href="#!">My Recipes</a></li>
+            <li><a class="waves-effect" href="#!">Add Recipes</a></li>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        
+        <!-- End navbar -->
+        
         <h1>Is connected, let's Go!</h1>
         {% block content %}
         {% endblock %}
         
-        <!--jQuery-->
+        
+        <!-- jQuery-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <!-- Collapsible Sidenav  -->
+        <script type="text/javascript">
+             $(document).ready(function () {
+                    $('.sidenav').sidenav();
+                });
+        </script>
     </body>
 </html>
