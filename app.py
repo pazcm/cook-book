@@ -11,11 +11,39 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/get_recipes')
-def get_recipe():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+# @app.route('/get_recipes')
+# def get_recipe():
+#     return render_template("recipes.html", recipes=mongo.db.recipes.find())
+
     
-# Search box
+# Filters
+@app.route('/list_recipes', methods=["GET", "POST"])
+def list_recipes():
+    category = mongo.db.category.find()
+    ingredient = mongo.db.ingredient.find()
+    cuisine = mongo.db.cuisine.find()
+    recipes = mongo.db.recipes.find()
+    
+    filters = {}
+    if request.method == "POST":
+        recipe_category = request.form.get("category")
+        if not recipe_category == None:
+            filters["category_type"] = recipe_category
+        recipe_ingredient = request.form.getlist("ingredient")
+        recipe_cuisine = request.form.get("cuisine")
+        if not recipe_cuisine == None:
+            filters["cuisine_origin"] = recipe_cuisine
+        
+        filter_recipes = mongo.db.recipes.find({"$and": [filters, {"ingredient": {"$nin": recipe_ingredient}}]})
+        filter_recipes_count = filter_recipes.count() 
+        print(filter_recipes_count)
+        return render_template('home.html', category=category, cuisine=cuisine, ingredient=ingredient, recipes=filter_recipes, count=filter_recipes_count)
+    else:
+        recipes = mongo.db.recipes.aggregate([
+                {"$sort": {"category_type": -1}}
+        ])
+      
+        return render_template('home.html', recipes=recipes, category=category, cuisine=cuisine, ingredient=ingredient)
 
 
 

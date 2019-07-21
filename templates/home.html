@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Quick and Easy Recipes</h1>
+    <div class="row">
+        <form action="/list_recipes" class="form-container" method="POST">
+    <div class="form-row form-row-one">
+        <div class="col s12 offset-m4 l4 form-filter">
+            <label for="category" class="category-filter">Category: </label>
+                <a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>button</a>
+        </div>
+        <div class="col s12 offset-m4 l4 form-filter">
+            <label for="category" class="category-filter">Ingredient: </label>
+                <a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>button</a>
+        </div>
+        <div class="col s12 offset-m4 l4 form-filter">
+            <label for="category" class="category-filter">Cuisine: </label>
+                <a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>button</a>
+        </div>
+    </div>
+        <!-- submit / reset -->
+        <div class="form-row form-row-two">
+            <div class="col s6 m6 offset-l3 l3">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Filter
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            <div class="col s6 m6 l3">
+                <button class="btn waves-effect waves-light" href="{{url_for('list_recipes', recipes=recipes, category=category, ingredient=ingredient, cuisine=cuisine)}}">Reset</button>
+            </div>
+        </div>
+    </form>
+    </div>
+{% endblock %}
