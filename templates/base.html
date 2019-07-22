@@ -44,7 +44,7 @@
                 <!--navbar menu-->
                 <a href="#" class="brand-logo center">Logo</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="templates/recipes.html">Recipes</a></li>
+                    <li><a href="templates/home.html">Recipes</a></li>
                     <li><a href="templates/my-recipes.html">My Recipes</a></li>
                     <li class="active"><a href="templates/add-recipes.html">Add Recipes</a></li>
                 </ul>
@@ -72,6 +72,12 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.sidenav').sidenav();
+            });
+        </script>
+        <!--form add recipe-->
+        <script>
+            $(document).ready(function() {
+                $('input#input_text, textarea#textarea2').characterCounter();
             });
         </script>
     </body>
