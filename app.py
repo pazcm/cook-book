@@ -12,7 +12,7 @@ mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/get_recipes')
-def get_recipe():
+def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
 
 # Add recipe
@@ -25,8 +25,30 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
+    # recipes.insert_one(request.form.to_dict())
+    recipes.insert_one(  {
+        'image': request.form.get('image'),
+        'name': request.form.get('name'),
+        'description': request.form.get('description'),
+        'author': request.form.get('author'),
+        'category': request.form.get('type'),
+        'cuisine': request.form.get('origin'),
+        'serves':request.form.get('serves'),
+        'readyIn':request.form.get('readyIn'),
+        'difficulty':request.form.getlist('mode'),
+        'ingredients':request.form.getlist('ingredient'),
+        'instructions':request.form.get('instructions'),
+        'tips': request.form.get('tips')
+        })
     return redirect(url_for('get_recipes'))
+
+# Edit recipe
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe =  mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    all_categories =  mongo.db.categories.find()
+    return render_template('edit-recipe.html', recipes=the_recipe,
+                           categories=all_categories)
     
 
 # Filters
