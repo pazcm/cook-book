@@ -9,95 +9,68 @@
           <label for="first_name">Recipe Image</label>
         </div>
         <div class="input-field col s6">
-          <input id="recipe_name" type="text" class="validate">
+          <input id="recipe_name" type="text" class="validate" required>
           <label for="recipe_name">Recipe Name</label>
         </div>
         <div class="input-field col s12">
-          <textarea id="description" class="materialize-textarea" placeholder="add a short description"></textarea>
+          <textarea id="description" class="materialize-textarea" placeholder="Add a short description"></textarea>
           <label for="description">Description</label>
         </div>
       </div>
       <div class="row">
         <label for="category">Category</label>
-        <div class="input-field col s6">
-          <p>
-            <label>
-              <input name="appetizer" type="radio" checked />
-              <span>Appetizer</span>
-            </label>
-          </p>
-          <p>
-            <label>
-              <input name="soup" type="radio" />
-              <span>Soup</span>
-            </label>
-          </p>
-          <p>
-            <label>
-              <input name="salad" type="radio"  />
-              <span>Salad</span>
-            </label>
-          </p>
-          <p>
-            <label>
-              <input name="fish" type="radio" />
-              <span>Fish</span>
-            </label>
-          </p>
-        </div>
-
-        <div class="input-field col s6">
-          <p>
-            <label>
-              <input name="meat" type="radio" />
-              <span>Meat</span>
-            </label>
-          </p>
-          <p>
-            <label>
-              <input name="dessert" type="radio" />
-              <span>Dessert</span>
-            </label>
-          </p>
-          <p>
-            <label>
-              <input name="bread" type="radio"  />
-              <span>Bread & Doughs</span>
-            </label>
-          </p>
+        <div class="input-field col s12">
+            {% for cat in categories %}
+            <p>
+                <input name="{{cat.type}}" type="radio" />
+                <span>{{cat.type}}</span>
+            </p>
+            {% endfor %}
         </div>
       </div>
-
       <div class="row">
-        <div class="input-field col s12 m4 l4">
-          <input id="cuisine" type="text" class="validate" required>
-          <label for="cuisine">Cuisine</label>
+        <div class="input-field col s12 m3 l3">
+          <select id="cuisines" name="origin">
+            <option value="" disabled selected>Choose a cuisine</option>
+            {% for cui in cuisines %}
+                <option value="{{cui.origin}}">{{cui.origin}}</option>
+            {% endfor %}
+          </select>
+          <label>Cuisines</label>
         </div>
-        <div class="input-field col s12 m4 l4">
-          <input id="serves" type="number" class="validate">
+        <div class="input-field col s12 m3 l3">
+          <input id="serves" type="number" min="1" class="validate" placeholder="For how many?">
           <label for="serves">Serves</label>
         </div>
-        <div class="input-field col s12 m4 l4">
-          <input id="readyIn" type="text" class="validate">
+        <div class="input-field col s12 m3 l3">
+          <input id="readyIn" type="text" class="validate" placeholder="Time estimated">
           <label for="serves">Ready In</label>
         </div>
+        <div class="input-field col s12 m3 l3">
+          <select id="difficulty" name="difficulty-mode">
+            <option value="" disabled selected>Choose a mode</option>
+            {% for dif in difficulty %}
+                <option value="{{dif.mode}}">{{dif.mode}}</option>
+            {% endfor %}
+          </select>
+          <label>Difficulty</label>
+        </div>
       </div>
-
     <div class="row">
       <div class="col s12">
         <!-- ingredients -->
-        <label for="ingredient">Ingredients: </label>
-        <input type="text" class="validate" placeholder="oil" required/>
-        <input type="text" class="validate" placeholder="garlic" required/>
-        <input type="text" class="validate" placeholder="salt" required/>
-        <input type="text" class="validate" placeholder="pepper" required/>
+        <label for="ingredient">Ingredients</label>
+        <input type="text" class="validate" placeholder="1l ..." required/>
+        <input type="text" class="validate" placeholder="1kg ..." required/>
+        <input type="text" class="validate" placeholder="a pinch of ..." required/>
+        <input type="text" class="validate" placeholder="4 ..." required/>
         <a class="btn-floating disabled"><i class="material-icons">add</i></a>
         <a class="btn-floating disabled"><i class="material-icons">remove</i></a>
       </div>
   </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea id="instructions" class="materialize-textarea"></textarea>
+        <textarea id="instructions" class="materialize-textarea" required></textarea>
         <label for="instructions">Instructions</label>
       </div>
     </div>
@@ -105,6 +78,18 @@
     <div class="input-field col s12">
       <textarea id="tips" class="materialize-textarea"></textarea>
       <label for="tips">Tips</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m6 offset-l2 offset-l2 l4">
+        <button class = "btn waves-effect waves-light red" type = "submit" >Cancel
+            <i class = "material-icons right">cancel</i>
+        </button>
+    </div>
+    <div class="col s12 m6 l4">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Add
+            <i class="material-icons right">add</i>
+        </button>    
     </div>
   </div>
 

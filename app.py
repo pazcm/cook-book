@@ -18,7 +18,8 @@ mongo = PyMongo(app)
 # Add recipe
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('add-recipe.html')        
+    return render_template('add-recipe.html',
+        difficulty=mongo.db.difficulty.find(), categories=mongo.db.categories.find(), cuisines=mongo.db.cuisines.find())  
 
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
@@ -48,14 +49,6 @@ def list_recipes():
         ])
       
         return render_template('home.html', recipes=recipes, categories=categories, cuisines=cuisines, ingredients=ingredients)
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
