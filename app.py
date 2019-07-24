@@ -70,8 +70,15 @@ def update_recipe(recipes_id):
         'tips': request.form.get('tips')
         })
     return redirect(url_for('get_recipes'))
+
+# Delete recipe
+@app.route('/delete_recipe/<recipes_id>')
+def delete_recipe(recipes_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
+    return redirect(url_for('get_recipes'))
     
-# recipe detail
+    
+# ecipe detail
 # @app.route('/recipe_detail')
 # def recipe_detail():
 #     return render_template('recipe-detail.html')
