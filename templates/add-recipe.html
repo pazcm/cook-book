@@ -4,9 +4,14 @@
 <div class="row">
     <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
       <div class="row">
-        <div class="input-field col s6">
-          <input id="image" name="image" type="text" placeholder="Image Address" class="validate">
-          <label for="image">Recipe Image</label>
+        <div class="file-field input-field col s6">
+          <div class="btn waves-effect waves-light">
+            <span>Image</span>
+                <input type="file" name="file" id="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input id="update_val" type="text" class="file-path validate" placeholder="Upload an image">
+          </div>
         </div>
         <div class="input-field col s6">
           <input id="recipe_name" name="name" type="text" placeholder="Title" class="validate" required>
@@ -27,9 +32,10 @@
         <div class="col s12">
           <label for="category">Category</label>
           <div class="input-field col s12">
+            <input type="radio" name="type"/>
               {% for cat in categories %}
               <p>
-                  <input name="{{cat.type}}" type="radio" />
+                  <input type="radio" name="{{cat.type}}"/>
                   <span>{{cat.type}}</span>
               </p>
               {% endfor %}
