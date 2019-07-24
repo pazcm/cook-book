@@ -78,12 +78,11 @@ def delete_recipe(recipes_id):
     return redirect(url_for('get_recipes'))
     
     
-# ecipe detail
-# @app.route('/recipe_detail')
-# def recipe_detail():
-#     return render_template('recipe-detail.html')
+# Recipe detail
+@app.route('/recipe_detail/<recipes_id>')
+def recipe_detail(recipes_id):
+    return render_template('recipe-detail.html', recipe=mongo.db.recipes.find_one({'_id':ObjectId(recipes_id)}))
     
-
 # Filters
 @app.route('/list_recipes', methods=['GET', 'POST'])
 def list_recipes():
