@@ -2,24 +2,24 @@
 {% block content %}
 <h3>Edit Recipe</h3>
 <div class="row">
-    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="https://images.unsplash.com/photo" id="image"  name="image" type="text" class="validate" value="{{recipe.image}}">
+          <input placeholder="https://images.unsplash.com/photo" id="image"  name="image" type="text" class="validate" value="{{recipes.image}}">
           <label for="image">Recipe Image</label>
         </div>
         <div class="input-field col s6">
-          <input id="recipe_name" type="text"  name="name" class="validate" value="{{recipe.recipe_name}}" required>
+          <input id="recipe_name" type="text"  name="name" class="validate" value="{{recipes.name}}" required>
           <label for="recipe_name">Recipe Name</label>
         </div>
         <div class="input-field col s12">
-          <textarea id="description"  name="description" class="materialize-textarea" placeholder="Add a short description" value="{{recipe.description}}"></textarea>
+          <textarea id="description"  name="description" class="materialize-textarea" placeholder="Add a short description" value="{{recipes.description}}"></textarea>
           <label for="description">Description</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="author"  name="author" class="materialize-textarea" placeholder="By" value="{{recipe.author}}"></textarea>
+          <textarea id="author"  name="author" class="materialize-textarea" placeholder="By" value="{{recipes.author}}"></textarea>
           <label for="author">Author</label>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <label for="category">Category</label>
         <div class="input-field col s12">
             {% for cat in categories %}
-              {% if cat.type == recipe.type %}
+              {% if cat.type == recipes.category %}
             <p>
                 <input name="{{cat.type}}" type="radio" checked/>
                 <span>{{cat.type}}</span>
@@ -44,7 +44,7 @@
           <select id="cuisines" name="origin">
             <option value="" disabled selected>Choose a cuisine</option>
             {% for cui in cuisines %}
-              {% if cui.origin == recipe.origin %}
+              {% if cui.origin == recipes.cuisine %}
                 <option value="{{cui.origin}}" selected >{{cui.origin}}</option>
                 {% else %}
                   <option value="{{cui.origin}}">{{cui.origin}}</option>
@@ -54,18 +54,18 @@
           <label>Cuisines</label>
         </div>
         <div class="input-field col s12 m3 l3">
-          <input id="serves" name="serves" type="number" min="1" class="validate" placeholder="For how many?" value="{{recipe.serves}}">
+          <input id="serves" name="serves" type="number" min="1" class="validate" placeholder="For how many?" value="{{recipes.serves}}">
           <label for="serves">Serves</label>
         </div>
         <div class="input-field col s12 m3 l3">
-          <input id="readyIn" name="readyIn" type="text" class="validate" placeholder="Time estimated" value="{{recipe.readyIn}}">
+          <input id="readyIn" name="readyIn" type="text" class="validate" placeholder="Time estimated" value="{{recipes.readyIn}}">
           <label for="readyIn">Ready In</label>
         </div>
         <div class="input-field col s12 m3 l3">
           <select id="difficulty" name="mode">
             <option value="" disabled selected>Choose a mode</option>
             {% for dif in difficulty %}
-              {% if dif.mode == recipe.mode %}
+              {% if dif.mode == recipes.mode %}
                 <option value="{{dif.mode}}" selected>{{dif.mode}}</option>
                  {% else %}
                  <option value="{{dif.mode}}">{{dif.mode}}</option>
@@ -79,7 +79,7 @@
         <div class="col s12">
           <!-- ingredients -->
           <label for="ingredient">Ingredients</label>
-            {% for ingredient in recipe.ingredients %}
+            {% for ingredient in recipes.ingredients %}
               <input type="text" name="ingredients" class="validate" value="{{ingredient}}" required> 
             {% endfor %}
           <a class="btn-floating disabled"><i class="material-icons">add</i></a>
@@ -102,12 +102,12 @@
       <div class="row">
         <div class="col s12 m6 offset-l2 offset-l2 l4">
             <button class = "btn waves-effect waves-light red" type = "submit" >Edit
-                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small blue">edit</a>
+                <a href="{{url_for('edit_recipe', recipes_id=recipes._id)}}" class="material-icons">edit</a>
             </button>
         </div>
         <div class="col s12 m6 l4">
             <button class="btn waves-effect waves-light" type="submit" name="action">Done
-               <a class="waves-effect waves-light btn btn_small">done</a>
+               <a class="material-icons">done</a>
             </button>    
         </div>
       </div>
