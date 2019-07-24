@@ -82,6 +82,12 @@ def delete_recipe(recipes_id):
 @app.route('/recipe_detail/<recipes_id>')
 def recipe_detail(recipes_id):
     return render_template('recipe-detail.html', recipe=mongo.db.recipes.find_one({'_id':ObjectId(recipes_id)}))
+
+
+# All recipes
+@app.route('/all_recipes', methods=["GET", "POST"])
+def all_recipes():
+    return render_template('all-recipes.html', recipes = mongo.db.recipes.find())
     
 # Filters
 @app.route('/list_recipes', methods=['GET', 'POST'])
@@ -89,7 +95,7 @@ def list_recipes():
     categories = mongo.db.categories.find()
     ingredients = mongo.db.ingredients.find()
     cuisines = mongo.db.cuisines.find()
-    recipe = mongo.db.recipes.find()
+    recipes = mongo.db.recipes.find()
     
     filters = {}
     if request.method == "POST":

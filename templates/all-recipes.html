@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All recipes view</h1>
+
+<div class="container all-recipes-container">
+  <div class="row">
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+  </div>
+   <div class="row">
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+  </div>
+   <div class="row">
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+    <div class="col s12 m6 l4"><p>{{recipes.image}}</p>1</div>
+  </div>
+</div>
+  
+  <!-- Pagination -->
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+            
+
+
+
+{% endblock %}
