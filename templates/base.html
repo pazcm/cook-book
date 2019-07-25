@@ -59,8 +59,41 @@
         <!--<h1>Is connected, let's Go!</h1>-->
         {% block content %}
         {% endblock %}
+        <!-- footer -->
+        <footer class="page-footer">
+            <div class="container footer-container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">Follow us!</p>
+                        <div class="social-icons">
+                            <a class="btn-floating waves-effect waves-light red"><i class="fab fa-instagram"></i></a>
+                            <a class="btn-floating waves-effect waves-light red"><i class="fab fa-twitter"></i></a>
+                            <a class="btn-floating waves-effect waves-light red"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                © 2019 Marta Paz
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+        </footer>
+            
         
         
+        <!-- Fontawesome social icons -->
+        <script src="https://kit.fontawesome.com/a7bfa3d133.js"></script>
         <!-- jQuery-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Compiled and minified JavaScript -->
@@ -73,13 +106,13 @@
                 $('.sidenav').sidenav();
             });
         </script>
-        <!--form add recipe-->
+        <!-- Form add recipe -->
         <script>
             $(document).ready(function() {
                 $('input#input_text, textarea#textarea2').characterCounter();
             });
         </script>
-        <!--select-->
+        <!-- Form select -->
         <script type="text/javascript">
             $(document).ready(function(){
                 $('select').formSelect();
