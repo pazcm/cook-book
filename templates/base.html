@@ -41,17 +41,17 @@
                 <!--end sidenav-->
                     
                 <!--navbar menu-->
-                <a href="#" class="brand-logo center">Logo</a>
+                <a class="waves-effect brand-logo center" href="{{url_for('list_recipes')}}">Logo</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li class="active"><a href="{{url_for('list_recipes')}}">Recipes</a></li>
-                    <li><a href="{{url_for('add_recipe')}}">My Recipes</a></li>
-                    <li><a href="{{url_for('add_recipe')}}">Add Recipes</a></li>
+                    <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
+                    <li><a class="waves-effect" href="{{url_for('list_recipes')}}">My Recipes</a></li>
+                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
                 </ul>
                 <div class="search-box">
-                        <form action="" class="browser-default right">
-                            <input id="search-input" placeholder="Find a recipe" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
-                            <label for="search-input"><i class="material-icons search-icon active">search</i></label>
-                        </form>
+                    <form action="" class="browser-default right">
+                        <input id="search-input" placeholder="Find a recipe" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
+                        <label for="search-input"><i class="material-icons search-icon active">search</i></label>
+                    </form>
                 </div>
             </div>
             <!--end navebar menu-->
