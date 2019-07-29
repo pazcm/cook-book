@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% block title %} Search results {% endblock %} 
+    <div class="row ">
+        <div class="container all-recipes-container">
+            <div class="row">
+            {% for recipe in recipes %}
+                <div class="col s12 m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="card-img" src="{{recipe.image}}" alt="cookie image">
+                                <span class="card-title card-recipe-title">{{recipe.name}}</span>
+                                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">share</i></a>
+                                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
+                        </div>
+                        <div class="card-recipe-info">
+                            <p>Category: {{recipe.category}}</p>
+                        </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
