@@ -1,9 +1,7 @@
 import os
-from forms import RecipeSearchForm
-from flask import Flask, flash, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
-
+from bson.objectid import ObjectId 
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cook-book-db'
@@ -12,31 +10,7 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@cluster2-6phdr.mongodb.ne
 mongo = PyMongo(app)
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    search = RecipeSearchForm(request.form)
-    if request.method == 'POST':
-        return search_results(search)
-
-    return render_template('index.html', form=search)
-    
-    
-@app.route('/results')
-def search_results(search):
-    results = []
-    search_string = search.data['search']
-    if search.data['search'] == '':
-        recipes = mongo.db.recipes.find()
-        results = recipes.all()
-    if not results:
-        flash('No results found!')
-        return redirect('/')
-    else:
-        # display results
-        return render_template('results.html', results=results)
-
-
-# Recipes    
+@app.route('/')
 @app.route('/get_recipes')
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
@@ -114,7 +88,35 @@ def recipe_detail(recipes_id):
 @app.route('/all_recipes', methods=["GET", "POST"])
 def all_recipes():
     return render_template('all-recipes.html', recipes = mongo.db.recipes.find())
-
+    
+# Filters
+@app.route('/list_recipes', methods=['GET', 'POST'])
+def list_recipes():
+    categories = mongo.db.categories.find()
+    ingredients = mongo.db.ingredients.find()
+    cuisines = mongo.db.cuisines.find()
+    recipes = mongo.db.recipes.find()
+    
+    filters = {}
+    if request.method == "POST":
+        categories = request.form.get("categories")
+        if not categories == None:
+            filters["category_type"] = categories
+        ingredient = request.form.getlist("ingredients")
+        origin = request.form.get("cuisines")
+        if not cuisines == None:
+            filters["cuisines"] = cuisines
+        
+        filter_recipes = mongo.db.recipes.find({"$and": [filters, {"ingredients": {"$nin": ingredient}}]})
+        filter_recipes_count = filter_recipes.count() 
+        print(filter_recipes_count)
+        return render_template('home.html', categories=categories, cuisines=cuisines, ingredients=ingredients, recipes=filter_recipes, count=filter_recipes_count)
+    else:
+        recipes = mongo.db.recipes.aggregate([
+                {"$sort": {"category_type": -1}}
+        ])
+      
+        return render_template('home.html', recipes=recipes, categories=categories, cuisines=cuisines, ingredients=ingredients)
 
 
 if __name__ == '__main__':
