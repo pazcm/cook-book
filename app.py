@@ -106,12 +106,12 @@ def list_recipes():
 
     filters = {}
     if request.method == "POST":
-        category_filter = request.form.get("cuisine")
+        category_filter = request.form.get("category")
         if not category_filter == None:
-            filters["cuisine"] = category_filter
+            filters["category"] = category_filter
         
 
-        filtered_results = mongo.db.recipes.find({"cuisine": category_filter})
+        filtered_results = mongo.db.recipes.find({"category": category_filter})
        
         return render_template('search.html', categories=category_filter, results=filtered_results)
     else:
