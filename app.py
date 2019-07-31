@@ -102,12 +102,13 @@ def all_recipes():
 def list_recipes():
     category_filter = request.form.get("category")
     filtered_results = mongo.db.recipes.find({"category": category_filter})
+    categories = mongo.db.categories.find()
     
 
     filters = {}
     if request.method == "POST":
-        category_filter = request.form.get("category")
-        if not category_filter == None:
+        category_filter = request.form.get("category_type")
+        if not category_filter == categories:
             filters["category"] = category_filter
         
 
