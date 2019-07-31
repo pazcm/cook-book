@@ -102,24 +102,25 @@ def all_recipes():
 def list_recipes():
     category_filter = request.form.get("category")
     filtered_results = mongo.db.recipes.find({"category": category_filter})
-    categories = mongo.db.categories.find()
+    category_type = mongo.db.categories.find()
     
 
     filters = {}
     if request.method == "POST":
+        
         category_filter = request.form.get("category_type")
-        if not category_filter == categories:
+        if not category_filter == category_type:
             filters["category"] = category_filter
         
 
         filtered_results = mongo.db.recipes.find({"category": category_filter})
        
-        return render_template('search.html', categories=category_filter, results=filtered_results)
+        return render_template('search.html', categories=category_type, results=filtered_results)
     else:
         flash('No results found!')
         # return redirect('/')
 
-    return render_template('home.html', categories=category_filter)
+    return render_template('home.html', categories=category_type)
     
     
 
