@@ -100,26 +100,29 @@ def all_recipes():
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
 def list_recipes():
-    
+    categories = mongo.db.categories.find()
+    cuisine = mongo.db.cuisines.find()
     recipes = mongo.db.recipes.find()
-    category_type = mongo.db.categories.find()
-    # search = request.form.get('category_type')
-    # filtered_results = mongo.db.recipes.find({"category": search})
-
+    filters = {}
+    filtered_results = mongo.db.recipes.find(filters)
+    
+    # filters = {}
     if request.method == "POST":
-        search = request.form.get('category_type')
-        if not search == category_type:
-            filtered_results = mongo.db.recipes.find({"category": search})
-    
+        recipe_category = request.form.get("category_type")
+        if not recipe_category == None:
+            filters["category"] = recipe_category
 
-        return render_template('search.html', recipes=recipes, categories=category_type)
+            # filtered_results = mongo.db.recipes.find(filters)
 
+        filter_recipes_count = filtered_results.count() 
+        print(filter_recipes_count)
+        return render_template('search.html', recipes=filtered_results, categories=categories, cuisine=cuisine)
     else:
-        flash('No results found!')
-        # return redirect('/')
-
-    return render_template('home.html', categories=category_type)
-    
+        recipes = mongo.db.recipes.aggregate([
+                {"$sort": {"category_type": -1}},
+        ])
+      
+        return render_template('home.html', categories=categories, cuisine=cuisine)
 
     
 

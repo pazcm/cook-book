@@ -23,10 +23,12 @@
                     <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
                 </div>
                 {% if categories %}
-                    <div class="card-recipe-info">
-                      {% if recipe.category == categories.category_type %}
-                        <p class="card-info"> {{recipe.category}} </p>
-                      {% else %}
+                    <!--<div class="card-recipe-info">-->
+                    <!--    {% if recipe.category == categories.category_type %}-->
+                    <!--        <p class="card-info"> show category here {{recipe.category}} </p>-->
+                    {% if recipe.cuisine == cuisines.cuisine %}
+                        <p class="card-info"> show cuisine {{recipe.cuisine}} </p>
+                        {% else %}
                         <p class="card-info">hello:{{recipe.name}}</p>
                       {% endif %}
                     </div>
