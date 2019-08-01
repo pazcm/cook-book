@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Results</h1>
+
+<div class="container search-recipes-container">
+    <div class="row">
+        <!-- iterates through recipes in the database and displays recipe name, category type,cuisine and a picture for each recipe-->
+        {% if count == 0 %}
+        <div class="col s10 offset-s1 offset-m2 m8 offset-l2 l8 no-results">
+            <p>No results found ...</p>
+        </div>
+        {% endif %}
+        
+        {% for recipe in recipes %}
+        <div class="col s12 m6 l3">
+            <a href="{{url_for('recipe_detail', recipes_id=recipe._id)}}"></a>
+            <div class="card">
+                <div class="card-image">
+                    <img class="card-img" src="{{recipe.image}}" alt="cookie image">
+                    <span class="card-title card-recipe-title">{{recipe.name}}</span>
+                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">share</i></a>
+                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
+                </div>
+                {% if categories %}
+                    <div class="card-recipe-info">
+                        {% if recipe.category == categories.category_type %}
+                            <p class="card-info"> show category here {{recipe.category}} </p>
+                          {% else %}
+                        <p class="card-info">hello:{{recipe.name}}</p>
+                      {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Pagination -->
+<div class="container pagination-container">
+    <ul class="pagination">
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="active"><a href="#!">1</a></li>
+        <li class="waves-effect"><a href="#!">2</a></li>
+        <li class="waves-effect"><a href="#!">3</a></li>
+        <li class="waves-effect"><a href="#!">4</a></li>
+        <li class="waves-effect"><a href="#!">5</a></li>
+        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+</div>
+
+{% endblock %}

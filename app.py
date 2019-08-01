@@ -100,6 +100,7 @@ def all_recipes():
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
 def list_recipes():
+<<<<<<< HEAD
     category_filter = request.form.get("category")
     filtered_results = mongo.db.recipes.find({"category": category_filter})
     
@@ -117,6 +118,36 @@ def list_recipes():
     else:
         flash('No results found!')
         # return redirect('/')
+=======
+    categories = mongo.db.categories.find()
+    cuisine = mongo.db.cuisines.find()
+    difficulty = mongo.db.difficulty.find()
+    filters = {}
+    filtered_results = mongo.db.recipes.find(filters)
+    
+    if request.method == "POST":
+        recipe_category = request.form.get("category_type")
+        if not recipe_category == None:
+            filters["category"] = recipe_category
+
+        recipe_cuisine = request.form.get("cuisine")
+        if not recipe_cuisine == None:
+            filters["cuisine"] = recipe_cuisine
+        
+        recipe_difficulty = request.form.get("difficulty")
+        if not recipe_difficulty == None:
+            filters["difficulty"] = recipe_difficulty
+
+        filter_recipes_count = filtered_results.count() 
+        print(filter_recipes_count)
+        return render_template('search.html', recipes=filtered_results, categories=categories, cuisines=cuisine, difficulty=difficulty)
+    else:
+        recipes = mongo.db.recipes.aggregate([
+                {"$sort": {"category_type": -1}},
+        ])
+      
+        return render_template('home.html', categories=categories, cuisines=cuisine, difficulty=difficulty)
+>>>>>>> ae6596c... add filters functionality update
 
     return render_template('home.html', categories=category_filter)
     

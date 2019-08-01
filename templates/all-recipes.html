@@ -2,7 +2,7 @@
 {% block content %}
 <h1>All recipes view</h1>
 
-<div class="container get-recipes-container">
+<div class="container all-recipes-container">
   <div class="row">
     {% for recipe in recipes %}
     <div class="col s12 m6 l3">
@@ -15,7 +15,7 @@
               <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
         </div>
         <div class="card-recipe-info">
-          <p>Category: {{recipe.category}}</p>
+          <p>Category: {{recipe.category_type}}</p>
         </div>
       </div>
     </div>
