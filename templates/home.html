@@ -6,8 +6,6 @@
             <form action="/list_recipes" class="form-container" method="POST">
                 <div class="form-row form-row-one">
                     <div class="col s12 offset-m4 l4 form-filter">
-                    <!--<a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>Category</a>-->
-                    <!--<div class="waves-effect waves-light btn-large">-->
                         <div class="input-field col s12 m3 l3">
                             <select id="category" name="category_type">
                                 <option value="" disabled selected>Category</option>
@@ -16,19 +14,23 @@
                                 {% endfor %}
                             </select>
                         </div>
-                    <!--</div>-->
-                    </div>
-                    
-                    <div class="col s12 offset-m4 l4 form-filter">
-                        <a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>Ingredient</a>
                     </div>
                     <div class="col s12 offset-m4 l4 form-filter">
-                    <!--<a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>Cuisine</a>-->
                         <div class="input-field col s12 m3 l3">
                             <select id="cuisines" name="cuisine">
                                 <option value="" disabled selected>Cuisine</option>
                                 {% for cui in cuisines %}
                                 <option value="{{cui.cuisine}}">{{cui.cuisine}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col s12 offset-m4 l4 form-filter">
+                        <div class="input-field col s12 m3 l3">
+                            <select id="difficulty" name="difficulty">
+                                <option value="" disabled selected>Difficulty</option>
+                                {% for dif in difficulty %}
+                                <option value="{{dif.mode}}">{{dif.mode}}</option>
                                 {% endfor %}
                             </select>
                         </div>
