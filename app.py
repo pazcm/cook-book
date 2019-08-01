@@ -34,7 +34,7 @@ def insert_recipe():
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
-        'category': request.form.get('type'),
+        'category': request.form.get('category_type'),
         'cuisine': request.form.get('cuisine'),
         'serves':request.form.get('serves'),
         'readyIn':request.form.get('readyIn'),
@@ -100,30 +100,28 @@ def all_recipes():
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
 def list_recipes():
-    category_filter = request.form.get("category")
-    filtered_results = mongo.db.recipes.find({"category": category_filter})
+    
+    recipes = mongo.db.recipes.find()
     category_type = mongo.db.categories.find()
+    # search = request.form.get('category_type')
+    # filtered_results = mongo.db.recipes.find({"category": search})
+
+    if request.method == "POST":
+        search = request.form.get('category_type')
+        if not search == category_type:
+            filtered_results = mongo.db.recipes.find({"category": search})
     
 
-    filters = {}
-    if request.method == "POST":
-        
-        category_filter = request.form.get("category_type")
-        if not category_filter == category_type:
-            filters["category"] = category_filter
-        
+        return render_template('search.html', recipes=recipes, categories=category_type)
 
-        filtered_results = mongo.db.recipes.find({"category": category_filter})
-       
-        return render_template('search.html', categories=category_type, results=filtered_results)
     else:
         flash('No results found!')
         # return redirect('/')
 
     return render_template('home.html', categories=category_type)
     
-    
 
+    
 
 
 if __name__ == '__main__':
