@@ -97,34 +97,17 @@ def all_recipes():
 # Search box
 
 
+
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
 def list_recipes():
-<<<<<<< HEAD
-    category_filter = request.form.get("category")
-    filtered_results = mongo.db.recipes.find({"category": category_filter})
-    
-
-    filters = {}
-    if request.method == "POST":
-        category_filter = request.form.get("cuisine")
-        if not category_filter == None:
-            filters["cuisine"] = category_filter
-        
-
-        filtered_results = mongo.db.recipes.find({"cuisine": category_filter})
-       
-        return render_template('search.html', categories=category_filter, results=filtered_results)
-    else:
-        flash('No results found!')
-        # return redirect('/')
-=======
     categories = mongo.db.categories.find()
     cuisine = mongo.db.cuisines.find()
     difficulty = mongo.db.difficulty.find()
     filters = {}
     filtered_results = mongo.db.recipes.find(filters)
     
+    # filters = {}
     if request.method == "POST":
         recipe_category = request.form.get("category_type")
         if not recipe_category == None:
@@ -147,9 +130,6 @@ def list_recipes():
         ])
       
         return render_template('home.html', categories=categories, cuisines=cuisine, difficulty=difficulty)
->>>>>>> ae6596c... add filters functionality update
-
-    return render_template('home.html', categories=category_filter)
     
     
 
