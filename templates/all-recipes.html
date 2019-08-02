@@ -8,14 +8,14 @@
     <div class="col s12 m6 l3">
       <div class="card">
         <div class="card-image">
-          <img class="card-img" src="{{recipe.image}}" alt="cookie image">
-            <span class="card-title card-recipe-title">{{recipe.name}}</span>
+          <img class="card-img" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
               <a class="btn-floating waves-effect waves-light red"><i class="material-icons">favorite</i></a>
               <a class="btn-floating waves-effect waves-light red"><i class="material-icons">share</i></a>
               <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
         </div>
         <div class="card-recipe-info">
-          <p>Category: {{recipe.category_type}}</p>
+          <p><span class="card-title card-recipe-title">{{recipe.name}}</span></p>
+          <p>Category: {{recipe.category}}</p>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@
                 <input type="file" name="file" id="file">
           </div>
           <div class="file-path-wrapper">
-            <input id="update_val" type="text" class="file-path validate" placeholder="Upload an image">
+            <input id="update_val" type="text" class="file-path validate" placeholder="Upload an image" required>
           </div>
         </div>
         <div class="input-field col s6">
@@ -18,13 +18,13 @@
           <label for="recipe_name">Recipe Name</label>
         </div>
         <div class="input-field col s12">
-          <textarea id="description" name="description" class="materialize-textarea" placeholder="Add a short description"></textarea>
+          <textarea id="description" name="description" class="materialize-textarea" placeholder="Add a short description" required></textarea>
           <label for="description">Description</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="author" name="author" class="materialize-textarea" placeholder="By"></textarea>
+          <textarea id="author" name="author" class="materialize-textarea" placeholder="By" required></textarea>
           <label for="author">Author</label>
         </div>
       </div>
@@ -35,7 +35,7 @@
               {% for cat in categories %}
               <p>
                 <label for={{cat.category_type}}>
-                  <input type="radio" name="{{cat.category_type}}" id={{cat.category_type}} /> <!-- I need an id per category type -->
+                  <input type="radio" name="{{cat.category_type}}"  id={{cat.category_type}} /> <!-- I need an id per category type id={{cat.category_type}}-->
                     <span>{{cat.category_type}}</span>
                 </label>
                </p>
@@ -45,7 +45,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12 m3 l3">
-          <select id="cuisines" name="cuisine">
+          <select id="cuisines" name="cuisine" required>
             <option value="" disabled selected>Choose a cuisine</option>
             {% for cui in cuisines %}
                 <option value="{{cui.cuisine}}">{{cui.cuisine}}</option>
@@ -54,15 +54,15 @@
           <label>Cuisines</label>
         </div>
         <div class="input-field col s12 m3 l3">
-          <input id="serves" name="serves" type="number" min="1" class="validate" placeholder="For how many?">
+          <input id="serves" name="serves" type="number" min="1" class="validate" placeholder="For how many?" required>
           <label for="serves">Serves</label>
         </div>
         <div class="input-field col s12 m3 l3">
-          <input id="readyIn" name="readyIn" type="text" class="validate" placeholder="Time estimated">
+          <input id="readyIn" name="readyIn" type="text" class="validate" placeholder="Time estimated" required>
           <label for="readyIn">Ready In</label>
         </div>
         <div class="input-field col s12 m3 l3">
-          <select id="difficulty" name="mode">
+          <select id="difficulty" name="mode" required>
             <option value="" disabled selected>Choose a mode</option>
             {% for dif in difficulty %}
                 <option value="{{dif.mode}}">{{dif.mode}}</option>
@@ -92,7 +92,7 @@
     </div>
  <div class="row">
     <div class="input-field col s12">
-      <textarea id="tips" name="tips" class="materialize-textarea"></textarea>
+      <textarea id="tips" name="tips" class="materialize-textarea" required></textarea>
       <label for="tips">Tips</label>
     </div>
   </div>

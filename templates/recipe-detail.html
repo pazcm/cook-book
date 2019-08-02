@@ -3,7 +3,7 @@
 <div class="container-top">
   <div class="row">
     <div class="col s12 m4 l4">image
-      <h6 class="recipe-image">{{recipe.image}}</h6>
+      <img class="recipe-image" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
     </div>
     <div class="col s12 m4 l4">name
       <h6 class="recipe-name">{{recipe.name}}</h6>

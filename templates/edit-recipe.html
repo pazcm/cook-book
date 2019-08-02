@@ -5,7 +5,7 @@
     <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="https://images.unsplash.com/photo" id="image"  name="image" type="text" class="validate" value="{{recipes.image}}">
+          <input placeholder="upload an image" id="image"  name="image" type="text" class="validate" value="{{recipes.image}}" required>
           <label for="image">Recipe Image</label>
         </div>
         <div class="input-field col s6">
@@ -27,27 +27,27 @@
         <label for="category">Category</label>
         <div class="input-field col s12">
             {% for cat in categories %}
-              {% if cat.type == recipes.category %}
+              {% if cat.category_type == recipes.category %}
             <p>
-                <input name="{{cat.type}}" type="radio" checked/>
-                <span>{{cat.type}}</span>
+                <input name="{{cat.category_type}}" type="radio" checked/>
+                <span>{{cat.category_type}}</span>
             </p>
             {% else %}
-              <input name="{{cat.type}}" type="radio" />
-              <span>{{cat.type}}</span>
+              <input name="{{cat.category_type}}" type="radio" />
+              <span>{{cat.category_type}}</span>
                {% endif %}
             {% endfor %}
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m3 l3">
-          <select id="cuisines" name="origin">
+          <select id="cuisines" name="cuisine">
             <option value="" disabled selected>Choose a cuisine</option>
             {% for cui in cuisines %}
-              {% if cui.origin == recipes.cuisine %}
-                <option value="{{cui.origin}}" selected >{{cui.origin}}</option>
+              {% if cui.cuisine == recipes.cuisine %}
+                <option value="{{cui.cuisine}}" selected >{{cui.cuisine}}</option>
                 {% else %}
-                  <option value="{{cui.origin}}">{{cui.origin}}</option>
+                  <option value="{{cui.cuisine}}">{{cui.cuisine}}</option>
                  {% endif %}
             {% endfor %}
           </select>
@@ -100,15 +100,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="col s12 m6 offset-l2 offset-l2 l4">
-            <button class = "btn waves-effect waves-light red" type = "submit" >Edit
-                <a href="{{url_for('edit_recipe', recipes_id=recipes._id)}}" class="material-icons">edit</a>
-            </button>
+        <div class="col s12 m6 l4">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Done
+            <a href="{{url_for('update_recipe', recipes_id=recipes._id)}}" class="material-icons">done</a>
+          </button>
         </div>
         <div class="col s12 m6 l4">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Done
-               <a class="material-icons">done</a>
-            </button>    
+          <button class = "btn waves-effect waves-light red" type = "submit" >Cancel
+            <i class = "material-icons right">cancel</i>
+          </button>
         </div>
       </div>
 

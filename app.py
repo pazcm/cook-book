@@ -64,7 +64,7 @@ def update_recipe(recipes_id):
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
-        'category': request.form.get('type'),
+        'category': request.form.get('category_type'),
         'cuisine': request.form.get('cuisine'),
         'serves':request.form.get('serves'),
         'readyIn':request.form.get('readyIn'),
@@ -94,20 +94,19 @@ def all_recipes():
     return render_template('all-recipes.html', recipes = mongo.db.recipes.find())
 
 
-# Search box
+# Search box maybe?
 
 
 
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
 def list_recipes():
-    categories = mongo.db.categories.find()
+    category = mongo.db.categories.find()
     cuisine = mongo.db.cuisines.find()
     difficulty = mongo.db.difficulty.find()
     filters = {}
     filtered_results = mongo.db.recipes.find(filters)
     
-    # filters = {}
     if request.method == "POST":
         recipe_category = request.form.get("category_type")
         if not recipe_category == None:
@@ -123,13 +122,10 @@ def list_recipes():
 
         filter_recipes_count = filtered_results.count() 
         print(filter_recipes_count)
-        return render_template('search.html', recipes=filtered_results, categories=categories, cuisines=cuisine, difficulty=difficulty)
+        return render_template('search.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
     else:
-        recipes = mongo.db.recipes.aggregate([
-                {"$sort": {"category_type": -1}},
-        ])
-      
-        return render_template('home.html', categories=categories, cuisines=cuisine, difficulty=difficulty)
+        category.sort("category_type", 1)
+        return render_template('home.html', categories=category, cuisines=cuisine, difficulty=difficulty)
     
     
 

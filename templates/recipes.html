@@ -8,13 +8,20 @@
     <div class="col s12 m6 l3">
       <div class="card">
         <div class="card-image">
-          <img class="card-img" src="{{recipe.image}}" alt="cookie image">
+          <img class="card-img" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
             <span class="card-title card-recipe-title">{{recipe.name}}</span>
               <a class="btn-floating waves-effect waves-light red"><i class="material-icons">favorite</i></a>
               <a class="btn-floating waves-effect waves-light red"><i class="material-icons">share</i></a>
               <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
         </div>
         <!--Edit - Delete buttons here-->
+        <div class="card-recipe-info">
+          <div class="card-recipe-edit-delete">
+            <a class="waves-effect waves-light btn-medium" href="{{ url_for('edit_recipe', recipes_id=recipe._id) }}" ><i class="material-icons right">edit</i>Edit</a>
+            <a class="waves-effect waves-light btn-medium" href="{{ url_for('delete_recipe', recipes_id=recipe._id) }}" ><i class="material-icons right">delete</i>Delete</a>
+          </div>
+        </div>
+        
       </div>
     </div>
     {% endfor %}
