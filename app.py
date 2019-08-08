@@ -28,6 +28,7 @@ def add_recipe():
 # Insert recipe
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
+    print(request.form) 
     recipes = mongo.db.recipes
     recipes.insert_one(  {
         'image': request.form.get('image'),

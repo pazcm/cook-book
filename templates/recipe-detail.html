@@ -1,75 +1,69 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container-top">
+<div>
+  <h1 class="title">{{recipe.name}}</h1>
+</div>
+
+
+<div class="recipe-container">
+
+<div class="recipe-container-top">
+  
   <div class="row">
-    <div class="col s12 m4 l4">image
-      <img class="recipe-image" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
+    
+    <div class="col s12 m4 l4 recipe-image">
+      <img class="image" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
     </div>
-    <div class="col s12 m4 l4">name
-      <h6 class="recipe-name">{{recipe.name}}</h6>
+    <div class="col s12 m4 l4">
+      <div class="recipe-info">
+        <h6 class="recipe-category">Category: <span>{{recipe.category}}</span></h6>
+        <h6 class="recipe-cuisine">Cuisine: <span>{{recipe.cuisine}}</span></h6>
+      </div>
+      <div class="recipe-extra-info">
+        <h6 class="recipe-serves"><i class="fas fa-utensils"></i> Serves: <span>{{recipe.serves}}</span></h6>
+        <h6 class="recipe-readyIn"><i class="far fa-clock"></i> Ready in: <span>{{recipe.readyIn}}</span></h6>
+        <h6 class="recipe-difficulty"><i class="far fa-grin-stars"></i> Difficulty: <span>{{recipe.difficulty}}</span></h6>
+      </div>
     </div>
-    <div class="col s12 m4 l4">author
-      <h6 class="recipe-author">{{recipe.author}}</h6>
+    <div class="col s12 m4 l4">
+      <div class="recipe-details">
+        <h5 class="recipe-name">{{recipe.name}}</h5>
+        <h6 class="recipe-description">Description:</h6>
+          <p>{{recipe.description}}</p>
+        <h6 class="recipe-author-by">By </h6><span class="recipe-author">{{recipe.author}}</span>
+      </div>
     </div>
-    <!--<div class="col s12 m4 l4">category-->
-    <!--  <h6 class="recipe-category">{{recipe.category}}</h6>-->
-    <!--</div>-->
+      
   </div>
+  
 </div>
-<div class="container-middle-top">
+
+<div class="recipe-container-bottom">
+  
   <div class="row">
-      <div class="col s12 m6 offset-l4 l3">category
-        <h6 class="recipe-category">{{recipe.category}}</h6>
-      </div>
-      <div class="col s12 m6 offset-l1 l3">description
-        <h6 class="recipe-description">{{recipe.description}}</h6>
-      </div>
+    
+    <div class="col s12 m4 l4">
+      <h6 class="recipe-ingredients">Ingredients:</h6>
+        <ol>
+            {% for ingredient in recipe.ingredients %}
+            <li class="recipe-ingredient">{{ingredient}} </li>
+            {% endfor %}
+        </ol>
     </div>
-    <div class="row">
-      <div class="col s12 m6 offset-l4 l3">cuisine
-        <h6 class="recipe-cuisine">{{recipe.cuisine}}</h6>
-      </div>
-      <!--<div class="col s12 m6 offset-l1 l3">description-->
-      <!--  <h6 class="recipe-description">{{recipe.description}}</h6>-->
-      <!--</div>-->
+    <div class="col s12 m4 l4">
+      <h6 class="recipe-instructions">Instructions:</h6>
+      <p>{{recipe.instructions}}</p>
+    </div>
+    <div class="col s12 m4 l4">
+      <h6 class="recipe-tips">Tips:</h6>
+      <p>{{recipe.tips}}</p>
+    </div>
+    
   </div>
+  
 </div>
-  <div class="container-middle-bottom">
-    <div class="row">
-      <div class="col s12 m6 offset-l4 l2">serves
-        <h6 class="recipe-serves">{{recipe.serves}}</h6>
-      </div>
-      <div class="col"></div>
-      <div class="col"></div>
-    </div>
-    <div class="row">
-      <div class="col s12 m6 offset-l4 l2">ready
-        <h6 class="recipe-readyIn">{{recipe.readyIn}}</h6>
-      </div>
-      <div class="col"></div>
-      <div class="col"></div>
-    </div>
-    <div class="row">
-      <div class="col s12 m6 offset-l4 l2">difficulty
-        <h6 class="recipe-difficulty">{{recipe.difficulty}}</h6>
-      </div>
-      <!--<div class="col s12 m6 offset-l2 l4">author-->
-      <!--  <h6 class="recipe-author">{{recipe.author}}</h6>-->
-      <!--</div>-->
-      <div class="col"></div>
-  </div>
+
+
 </div>
-<div class="container-bottom">
-  <div class="row">
-    <div class="col s12 m4 l4">ingredients
-      <h6 class="recipe-ingredients">{{recipe.ingredients}}</h6>
-    </div>
-    <div class="col s12 m4 l4">instructions
-      <h6 class="recipe-instructions">{{recipe.instructions}}</h6>
-    </div>
-    <div class="col s12 m4 l4">tips
-      <h6 class="recipe-tips">{{recipe.tips}}</h6>
-    </div>
-  </div>
-</div>
+
 {% endblock %}

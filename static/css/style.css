@@ -1,6 +1,9 @@
 body {
   background-color: #fffde7;
+  padding: 0;
+  margin: 0;
 }
+
 
 nav .nav-wrapper {
   background-color: #f8bbd0;
@@ -46,6 +49,54 @@ input.search-field:focus {
   
 
 
+/* recipe detail */
+
+.title {
+  text-align: center;
+}
+
+.image {
+  object-fit: cover;
+  width: 350px;
+  height: 337px;
+}
+
+.recipe-name {
+  display: none;
+}
+
+.recipe-info {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.recipe-extra-info {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.recipe-category, .recipe-cuisine, .recipe-name {
+  margin-top:0;
+  /*padding-right: 30px;*/
+}
+
+h6 {
+  padding-right: 8px;
+  font-weight: 500;
+  color: #795548;
+}
+
+span {
+  color: rgba(0,0,0,0.87);
+  font-style: italic;
+}
+
+
+
+
+
 /* Media queries */
 @media (min-width: 600px) { 
   
@@ -65,4 +116,8 @@ input.search-field:focus {
     padding-left: 20px;
   }
 
+}
+
+.page-footer {
+  background-color: #f8bbd0;
 }

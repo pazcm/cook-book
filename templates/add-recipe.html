@@ -65,7 +65,7 @@
           <select id="difficulty" name="mode" required>
             <option value="" disabled selected>Choose a mode</option>
             {% for dif in difficulty %}
-                <option value="{{dif.mode}}">{{dif.mode}}</option>
+              <option value="{{dif.mode}}">{{dif.mode}}</option>
             {% endfor %}
           </select>
           <label>Difficulty</label>
@@ -73,15 +73,13 @@
       </div>
     <div class="row">
       <div class="col s12">
-        <!-- ingredients -->
-        <label for="ingredient">Ingredients</label>
-        <input type="text" name="ingredient" class="validate" placeholder="Ingredient 1" required/>
-        <input type="text" name="ingredient" class="validate" placeholder="Ingredient 2" required/>
-        <input type="text" name="ingredient" class="validate" placeholder="Ingredient 3" required/>
-        <input type="text" name="ingredient" class="validate" placeholder="Ingredient 4" required/>
-        <input type="text" name="ingredient" class="validate" placeholder="Ingredient 5" required/>
-        <a class="btn-floating"><i class="material-icons">add</i></a>
-        <a class="btn-floating"><i class="material-icons">remove</i></a>
+        <input class="ingredient" type="text" name="ingredient" class="validate" placeholder="Enter an ingredient" required/>
+        <input class="ingredient" type="text" name="ingredient" class="validate" placeholder="Enter an ingredient" required/>
+        <input class="ingredient" type="text" name="ingredient" class="validate" placeholder="Enter an ingredient"/>
+        <input class="ingredient" type="text" name="ingredient" class="validate" placeholder="Enter an ingredient"/>
+        <input class="ingredient" type="text" name="ingredient" class="validate" placeholder="Enter an ingredient"/>
+        <a class="btn-floating"><i class="material-icons add-ingredient">add</i></a>
+        <a class="btn-floating"><i class="material-icons remove-ingredient">remove</i></a>
       </div>
   </div>
     <div class="row">
