@@ -4,6 +4,7 @@ body {
   background-color: #fffde7;
   padding: 0;
   margin: 0;
+  overflow-x:hidden;
   
 }
 
@@ -60,20 +61,24 @@ input.search-field:focus {
 
 /* -- Recipe detail -- */
 
+
+.recipe-container {
+  padding: 10px;
+}
+
 .title {
-  text-align: center;
+  margin-top: 0;
   
+}
+
+.recipe-img {
+  padding-top: 15px;
 }
 
 .recipe-image {
   object-fit: cover;
-  width: 350px;
-  height: 337px;
-  
-}
-
-.recipe-name {
-  display: none;
+  width: 100%;
+  height: 340px;
   
 }
 
@@ -96,10 +101,15 @@ input.search-field:focus {
 
 }
 
+.recipe-description {
+  margin-top:0;
+}
+
 h6 {
-  padding-right: 8px;
+  padding-right: 10px;
   font-weight: 500;
   color: #795548;
+  font-size: 1rem;
   
 }
 
@@ -132,7 +142,7 @@ ol {
 
 .page-footer {
   background-color: #f8bbd0;
-  
+ 
 }
 
 .footer-social {
@@ -157,7 +167,7 @@ ol {
 /* -- Media Queries -- */
 @media (min-width: 600px) { 
   
-  /* -- Search box -- */
+   /* -- Search box -- */
   
   input.search-field {
     padding: 8px 8px 8px 60px;
@@ -175,6 +185,58 @@ ol {
     
   }
 
+
+   /* -- Recipe detail desktop -- */
+  
+  .recipe-container {
+    margin: 20px;
+  }
+  
+  .recipe-info {
+    display: block;
+    padding: 15px 30px 15px 30px;
+    margin-left: 40px;
+    
+  }
+  
+  .recipe-info-details {
+    width: 25% !important;
+  }
+
+  .recipe-extra-info {
+    display: block;
+    padding: 30px;
+    margin-top: 50px;
+    margin-left: 40px;
+    
+  }
+  
+  .fas, .far {
+    padding-right: 15px;
+  }
+  
+  .recipe-category, .recipe-cuisine {
+    margin-top:0;
+    padding-bottom: 30px;
+  
+  }
+  
+  .recipe-serves, .recipe-readyIn, .recipe-difficulty {
+    padding-bottom: 25px;
+  }
+  
+
+  ol {
+    padding-left: 18px;
+    
+  }
+  
+  .recipe-img-icons {
+    display: flex;
+    justify-content: center;
+    bottom: 60px;
+    position: relative;
+    
+  }
+  
 }
-
-

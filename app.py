@@ -40,7 +40,7 @@ def insert_recipe():
         'serves':request.form.get('serves'),
         'readyIn':request.form.get('readyIn'),
         'difficulty':request.form.getlist('mode'),
-        'ingredients':request.form.getlist('ingredient'),
+        'ingredients':request.form.get('ingredient'),
         'instructions':request.form.get('instructions'),
         'tips': request.form.get('tips')
         })
@@ -70,7 +70,7 @@ def update_recipe(recipes_id):
         'serves':request.form.get('serves'),
         'readyIn':request.form.get('readyIn'),
         'difficulty':request.form.getlist('mode'),
-        'ingredients':request.form.getlist('ingredient'),
+        'ingredients':request.form.get('ingredient'),
         'instructions':request.form.get('instructions'),
         'tips': request.form.get('tips')
         })
