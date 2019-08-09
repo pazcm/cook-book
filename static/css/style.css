@@ -1,21 +1,27 @@
+/* -- General -- */
+
 body {
   background-color: #fffde7;
   padding: 0;
   margin: 0;
+  
 }
 
 
 nav .nav-wrapper {
   background-color: #f8bbd0;
   margin-right: 0;
+  
 }
 
-/* search box */
+
+/* -- Search box -- */
 
 nav .search-box {
   position: relative;
   height: 100%;
   margin-right: 10px;
+  
 }
 
 input.search-field {
@@ -29,15 +35,18 @@ input.search-field {
   height: 36px;
   background: #f7f7f7;
   transition: background 0.2s, width .2s;
+  
 }
 
 input.search-field:hover {
   background: #ebebeb;
+  
 }
 
 input.search-field:focus {
   width: 100vw;
   padding: 8px 8px 8px 50px;
+  
 }
 
 .search-icon {
@@ -45,66 +54,115 @@ input.search-field:focus {
   top: 0;
   padding-left: 15px;
   color: rgba(0, 0, 0, 0.54);
+  
 }
   
 
-
-/* recipe detail */
+/* -- Recipe detail -- */
 
 .title {
   text-align: center;
+  
 }
 
-.image {
+.recipe-image {
   object-fit: cover;
   width: 350px;
   height: 337px;
+  
 }
 
 .recipe-name {
   display: none;
+  
 }
 
 .recipe-info {
   display: flex;
   justify-content: center;
   padding: 10px;
+  
 }
 
 .recipe-extra-info {
   display: flex;
   margin-bottom: 20px;
   justify-content: center;
+  
 }
 
 .recipe-category, .recipe-cuisine, .recipe-name {
   margin-top:0;
-  /*padding-right: 30px;*/
+
 }
 
 h6 {
   padding-right: 8px;
   font-weight: 500;
   color: #795548;
+  
 }
 
 span {
   color: rgba(0,0,0,0.87);
   font-style: italic;
+  
+}
+
+ol {
+  padding-left: 18px;
+  
+}
+
+.recipe-img-icons {
+  display: flex;
+  justify-content: center;
+  bottom: 60px;
+  position: relative;
+  
+}
+
+.recipe-img-icons-btn {
+  margin-right: 20px;
+  
+}
+
+
+/* -- Footer -- */
+
+.page-footer {
+  background-color: #f8bbd0;
+  
+}
+
+.footer-social {
+  text-align: center;
+ 
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-left: 25px;
+
+}
+
+.social-icons a {
+  margin-right: 25px;
 }
 
 
 
-
-
-/* Media queries */
+/* -- Media Queries -- */
 @media (min-width: 600px) { 
   
-  /* search box */
+  /* -- Search box -- */
   
   input.search-field {
     padding: 8px 8px 8px 60px;
     width: 200px;
+    
   }
   
   input.search-field:focus {
@@ -114,10 +172,9 @@ span {
   
   .search-icon {
     padding-left: 20px;
+    
   }
 
 }
 
-.page-footer {
-  background-color: #f8bbd0;
-}
+

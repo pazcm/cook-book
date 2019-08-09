@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-  <h1 class="title">{{recipe.name}}</h1>
+  <h2 class="title">{{recipe.name}}</h2>
 </div>
 
 
@@ -11,9 +11,15 @@
   
   <div class="row">
     
-    <div class="col s12 m4 l4 recipe-image">
-      <img class="image" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
+    <div class="col s12 m4 l4 recipe-img">
+      <img class="recipe-image" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
+      <div class="recipe-img-icons">
+        <a class="btn-floating waves-effect waves-light brown recipe-img-icons-btn"><i class="material-icons">favorite</i></a>
+        <a class="btn-floating waves-effect waves-light brown recipe-img-icons-btn"><i class="material-icons">share</i></a>
+        <a class="btn-floating waves-effect waves-light brown recipe-img-icons-btn"><i class="material-icons">bookmark_border</i></a>
+      </div>
     </div>
+    
     <div class="col s12 m4 l4">
       <div class="recipe-info">
         <h6 class="recipe-category">Category: <span>{{recipe.category}}</span></h6>
@@ -30,7 +36,7 @@
         <h5 class="recipe-name">{{recipe.name}}</h5>
         <h6 class="recipe-description">Description:</h6>
           <p>{{recipe.description}}</p>
-        <h6 class="recipe-author-by">By </h6><span class="recipe-author">{{recipe.author}}</span>
+        <h6 class="recipe-author-by">By <span class="recipe-author">{{recipe.author}}</span></h6>
       </div>
     </div>
       
