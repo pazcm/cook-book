@@ -18,9 +18,9 @@
                 <div class="card-image">
                     <img class="card-img" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
                     <span class="card-title card-recipe-title">{{recipe.name}}</span>
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">favorite</i></a>
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">share</i></a>
-                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
+                    <a class="btn-floating waves-effect waves-light brown"><i class="material-icons">favorite</i></a>
+                    <a class="btn-floating waves-effect waves-light brown"><i class="material-icons">share</i></a>
+                    <a class="btn-floating waves-effect waves-light brown"><i class="material-icons">bookmark_border</i></a>
                 </div>
                 {% if categories %}
                     <div class="card-recipe-info">
@@ -41,7 +41,7 @@
 <div class="container pagination-container">
     <ul class="pagination">
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="#!">1</a></li>
+        <li class="active brown"><a href="#!">1</a></li>
         <li class="waves-effect"><a href="#!">2</a></li>
         <li class="waves-effect"><a href="#!">3</a></li>
         <li class="waves-effect"><a href="#!">4</a></li>
