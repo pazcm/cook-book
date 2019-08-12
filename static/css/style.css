@@ -15,6 +15,14 @@ nav .nav-wrapper {
   
 }
 
+h1.title {
+  display: block;
+}
+
+.card-title {
+  bottom: 15px !important;
+}
+
 
 /* -- Search box -- */
 
@@ -129,6 +137,7 @@ ol {
   justify-content: center;
   bottom: 60px;
   position: relative;
+  
   
 }
 
