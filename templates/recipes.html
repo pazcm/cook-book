@@ -11,7 +11,7 @@
           <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image"></a>
             <span class="card-title">{{recipe.name}}</span>
           <a class="btn-floating left halfway-fab waves-effect waves-light brown"><i class="material-icons">favorite</i></a>
-          <a class="btn-floating halfway-fab waves-effect waves-light brown" style="position:relative; float:right; bottom:19px; right:115px"><i class="material-icons">share</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light brown" style="float:right; right:115px"><i class="material-icons">share</i></a>
           <a class="btn-floating right halfway-fab waves-effect waves-light brown"><i class="material-icons">bookmark_border</i></a>
         </div>
         <!--Edit - Delete buttons here-->

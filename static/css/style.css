@@ -8,7 +8,6 @@ body {
   
 }
 
-
 nav .nav-wrapper {
   background-color: #f8bbd0;
   margin-right: 0;
@@ -16,11 +15,49 @@ nav .nav-wrapper {
 }
 
 h1.title {
-  display: block;
+  display: none;
 }
 
 .card-title {
   bottom: 15px !important;
+}
+
+.card-recipe-info {
+  text-align: center;
+  position: relative;
+  padding: 20px;
+ 
+ 
+}
+
+.card-recipe-info a {
+  color: #795548;
+  
+}
+
+.card {
+  background-color: #f8bbd0;
+}
+
+.card-image {
+  margin-bottom: 50px;
+  margin-top: 20px;
+  
+}
+
+.container-recipe-img-icons-btn {
+  display: flex;
+   justify-content: space-between;
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  bottom: -20px;
+  
+}
+
+.pagination {
+  margin-top: 50px;
+  
 }
 
 
