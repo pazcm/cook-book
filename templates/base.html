@@ -45,7 +45,7 @@
                         <div class="divider"></div>
                     </li>
                     <li><a class="subheader">Browse</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Recipes</a></li>
+                    <li><a class="waves-effect" href="{{url_for('list_recipes')}}">Recipes</a></li>
                     <li><a class="waves-effect" href="{{url_for('add_recipe')}}">My Recipes</a></li>
                     <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
                 </ul>
@@ -84,12 +84,12 @@
                             <a class="btn-floating waves-effect waves-light brown"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Links</h5>
-                        <ul>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <div class="col l4 offset-l2 s12 footer-links">
+                        <!--<h5 class="white-text">Links</h5>-->
+                        <ul class="links">
+                          <li><a class="grey-text text-lighten-3" href="{{url_for('all_recipes')}}">All recipes</a></li>
+                          <li><a class="grey-text text-lighten-3" href="#!">My recipes</a></li>
+                          <li><a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}">Add recipe</a></li>
                         </ul>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
             <div class="footer-copyright">
                 <div class="container">
                 © 2019 Marta Paz
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="grey-text text-lighten-4 right" href="https://www.tasteatlas.com/" target="_blank">Taste Atlas</a>
                 </div>
             </div>
         </footer>

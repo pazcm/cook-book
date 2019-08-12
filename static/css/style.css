@@ -14,8 +14,25 @@ nav .nav-wrapper {
   
 }
 
+.title {
+  text-align: center;
+}
+
 h1.title {
   display: none;
+  
+}
+
+.filter-btn {
+  float: none !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 33% !important;
+  
+}
+
+.filter-btn input {
+  color: white;
 }
 
 .card-title {
@@ -102,22 +119,19 @@ input.search-field:focus {
   color: rgba(0, 0, 0, 0.54);
   
 }
-  
+
 
 /* -- Recipe detail -- */
 
 
 .recipe-container {
   padding: 10px;
-}
-
-.title {
-  margin-top: 0;
   
 }
 
 .recipe-img {
   padding-top: 15px;
+  
 }
 
 .recipe-image {
@@ -141,14 +155,11 @@ input.search-field:focus {
   
 }
 
-.recipe-category, .recipe-cuisine, .recipe-name {
+.recipe-category, .recipe-cuisine, .recipe-name, .recipe-description {
   margin-top:0;
 
 }
 
-.recipe-description {
-  margin-top:0;
-}
 
 h6 {
   padding-right: 10px;
@@ -206,7 +217,20 @@ ol {
 
 .social-icons a {
   margin-right: 25px;
+  
 }
+
+.footer-links {
+  margin-top: 30px;
+}
+
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+}
+
 
 
 
@@ -283,6 +307,43 @@ ol {
     bottom: 60px;
     position: relative;
     
+  }
+  
+  
+   /* -- home -- */
+   
+  .row-one-filter {
+    position: relative;
+    left: 100px;
+    height: 300px;
+    
+  }
+  
+   .row-two-filter {
+     height: 100px;
+     
+   }
+  
+  .filter-btn {
+    width: 8% !important;
+  }
+  
+  
+  /*-- Footer --*/
+  
+  .footer-links {
+  margin-top: 0;
+}
+
+  
+  .links {
+    display: block;
+    
+  }
+  
+  .links li {
+    padding-bottom: 30px;
+   
   }
   
 }
