@@ -4,25 +4,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Google Icon Font -->
+        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Liu+Jian+Mao+Cao|Rock+Salt&display=swap" rel="stylesheet">
         <!-- Materialize -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- custom CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
         
         <title>Cook Book app</title>
-        
-        <!--search box-->
-        <!--{% with messages = get_flashed_messages() %}-->
-        <!--    {% if messages %}-->
-        <!--        <ul class=flashes>-->
-        <!--        {% for message in messages %}-->
-        <!--            <li>{{ message }}</li>-->
-        <!--            {% endfor %}-->
-        <!--        </ul>-->
-        <!--    {% endif %}-->
-        <!--{% endwith %}-->
         
     </head>
     <body>
@@ -53,7 +43,7 @@
                 <!--end sidenav-->
                     
                 <!--navbar menu-->
-                <a class="waves-effect brand-logo center" href="{{url_for('get_recipes')}}">Logo</a>
+                <a class="waves-effect brand-logo center" href="{{url_for('get_recipes')}}"><img class="logo logo-nav" src="static/images/logo.png">logo</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
                     <li><a class="waves-effect" href="{{url_for('list_recipes')}}">My Recipes</a></li>

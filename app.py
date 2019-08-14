@@ -26,7 +26,7 @@ def add_recipe():
         difficulty=mongo.db.difficulty.find(), categories=mongo.db.categories.find(), cuisines=mongo.db.cuisines.find())
 
 # Insert recipe
-@app.route('/insert_recipe', methods=['POST'])
+@app.route('/insert_recipe', methods=['POST', 'GET'])
 def insert_recipe():
     print(request.form) 
     recipes = mongo.db.recipes
@@ -35,7 +35,7 @@ def insert_recipe():
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
-        'category': request.form.get('type'),
+        'category': request.form.getlist('category'),
         'cuisine': request.form.get('cuisine'),
         'serves':request.form.get('serves'),
         'readyIn':request.form.get('readyIn'),
@@ -55,7 +55,7 @@ def edit_recipe(recipes_id):
                            categories=all_categories)
                            
 # Update recipe
-@app.route('/update_recipe/<recipes_id>', methods=['POST'])
+@app.route('/update_recipe/<recipes_id>', methods=['GET', 'POST'])
 def update_recipe(recipes_id):
     
     recipes = mongo.db.recipes
@@ -65,13 +65,13 @@ def update_recipe(recipes_id):
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
-        'category': request.form.get('category_type'),
+        'category': request.form.getlist('category'),
         'cuisine': request.form.get('cuisine'),
-        'serves':request.form.get('serves'),
-        'readyIn':request.form.get('readyIn'),
-        'difficulty':request.form.getlist('mode'),
-        'ingredients':request.form.get('ingredient'),
-        'instructions':request.form.get('instructions'),
+        'serves': request.form.get('serves'),
+        'readyIn': request.form.get('readyIn'),
+        'difficulty': request.form.getlist('mode'),
+        'ingredients': request.form.get('ingredient'),
+        'instructions': request.form.get('instructions'),
         'tips': request.form.get('tips')
         })
     return redirect(url_for('get_recipes'))

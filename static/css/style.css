@@ -1,10 +1,12 @@
 /* -- General -- */
+@import url('https://fonts.googleapis.com/css?family=Give+You+Glory|Liu+Jian+Mao+Cao|Rock+Salt&display=swap');
 
 body {
   background-color: #fffde7;
   padding: 0;
   margin: 0;
   overflow-x:hidden;
+  font-family: 'Give You Glory', 'Rock Salt',  'Liu Jian Mao Cao';
   
 }
 
@@ -16,10 +18,16 @@ nav .nav-wrapper {
 
 .title {
   text-align: center;
+  color: #795548;
 }
 
 h1.title {
   display: none;
+  
+}
+
+input {
+  font-family: 'Give You Glory', 'Rock Salt',  'Liu Jian Mao Cao';
   
 }
 
@@ -33,17 +41,23 @@ h1.title {
 
 .filter-btn input {
   color: white;
+  
+}
+
+.dropdown-content li>span {
+  color: #795548;
+  
 }
 
 .card-title {
   bottom: 15px !important;
+  
 }
 
 .card-recipe-info {
   text-align: center;
   position: relative;
   padding: 20px;
- 
  
 }
 
@@ -54,6 +68,7 @@ h1.title {
 
 .card {
   background-color: #f8bbd0;
+  
 }
 
 .card-image {
@@ -64,7 +79,7 @@ h1.title {
 
 .container-recipe-img-icons-btn {
   display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   position: absolute;
   left: 50px;
   right: 50px;
@@ -332,8 +347,8 @@ ol {
   /*-- Footer --*/
   
   .footer-links {
-  margin-top: 0;
-}
+      margin-top: 0;
+  }
 
   
   .links {
