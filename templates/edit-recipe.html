@@ -5,7 +5,7 @@
     <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input id="image"  name="image" type="text" class="validate" value="{{recipes.image}}" required>
+          <input id="image"  name="image" type="text" class="validate" value="{{recipes.image}}" required>{{recipes.image}}
           <label for="image">Recipe Image</label>
         </div>
         <div class="input-field col s6">
@@ -25,19 +25,19 @@
       </div>
       <div class="row">
         <label for="category">Category</label>
-        <div class="input-field col s12">
-            {% for cat in categories %}
-              {% if cat.category_type == recipes.category %}
-            <p>
-              <input name="category" type="checkbox" class="validate"/>
-              <span>{{cat.category_type}}</span>
-            </p>
-            {% else %}
-              <input name="category" type="checkbox" class="validate"/>
-              <span>{{cat.category_type}}</span>
-               {% endif %}
-            {% endfor %}
-        </div>
+          <div class="input-field col s12">
+              {% for cat in categories %}
+                {% if cat.category_type == recipes.category %}
+              <p>
+                <input type="checkbox" name="category" id="{{cat.category_type}}" class="validate"/>
+                <span>{{cat.category_type}}</span>
+              </p>
+              {% else %}
+                <input name="category" type="checkbox" class="validate"/>
+                <span>{{cat.category_type}}</span>
+                 {% endif %}
+              {% endfor %}
+          </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m3 l3">

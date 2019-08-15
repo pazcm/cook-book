@@ -8,7 +8,7 @@
     <div class="col s12 m6 l3">
       <div class="card">
         <div class="card-image">
-          <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image"></a>
+          <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src="{{recipe.image}}" alt="{{recipe.name}}-image" ></a>
             <span class="card-title">{{recipe.name}}</span>
             <div class="container-recipe-img-icons-btn">
               <a class="btn-floating waves-effect waves-light brown fav-btn"><i class="material-icons">favorite</i></a>
@@ -23,7 +23,6 @@
             <a class="waves-effect waves-light btn-medium" href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}" ><i class="material-icons right">check</i>View</a>
           </div>
         </div>
-        
       </div>
     </div>
     {% endfor %}
