@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col s12 m4 l4">
         <div class="recipe-img">
-          <img class="recipe-image" src= {{ url_for('static', filename = 'images/cookie.jpg') }} alt="cookie image">
+          <img class="recipe-image" src="{{recipe.image}}" alt="{{recipe.name}}-image" >
         </div>
         <div class="recipe-img-icons">
           <a class="btn-floating waves-effect waves-light brown recipe-img-icons-btn"><i class="material-icons">favorite</i></a>
