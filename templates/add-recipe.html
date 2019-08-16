@@ -25,18 +25,13 @@
       </div>
       <div class="row">
         <div class="col s12">
-          <label for="category">Category</label>
+           <label for="category_type">Category</label>
           <div class="input-field col s12">
-              {% for cat in categories %}
-              <p>
-                <label for="{{cat.category_type}}">
-                  <input type="radio" value="{{cat.category_type}}" name="category" id="{{cat.category_type}}" class="validate">
-                    <span>{{cat.category_type}}</span>
-                </label>
-               </p>
-              {% endfor %}
+            {% for cat in categories %}
+              <input name="category_type" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" />
+                <span>{{cat.category_type}}</span>
+            {% endfor %}
           </div>
-        </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m3 l3">

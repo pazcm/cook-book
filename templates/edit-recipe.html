@@ -5,7 +5,7 @@
     <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input id="image"  name="image" type="text" class="validate" value="{{recipes.image}}" required>{{recipes.image}}
+          <input id="image"  name="image" type="text" class="validate" value="{{recipes.image}}" required>
           <label for="image">Recipe Image</label>
         </div>
         <div class="input-field col s6">
@@ -24,20 +24,23 @@
         </div>
       </div>
       <div class="row">
-        <label for="category">Category</label>
-          <div class="input-field col s12">
-              {% for cat in categories %}
-                {% if cat.category_type == recipes.category %}
-              <p>
-                <input type="checkbox" name="category" id="{{cat.category_type}}" class="validate"/>
-                <span>{{cat.category_type}}</span>
-              </p>
-              {% else %}
-                <input name="category" type="checkbox" class="validate"/>
-                <span>{{cat.category_type}}</span>
-                 {% endif %}
-              {% endfor %}
+        <div class="col s12">
+          <!--Change to string-->
+          {% for cat in categories %}
+            {% if cat.category_type == recipes.category %}
+            <label for="category">Category</label>
+            <div class="input-field col s12">
+              <label for="category">
+                <input name="category" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" checked />
+                  <span>{{cat.category_type}}</span>
+              </label>
+               {% else %}
+                <input type="radio" name="category" id="{{cat.category_type}}" class="validate"/>
+                  <span>{{cat.category_type}}</span>
+              {% endif %}
+            {% endfor %}
           </div>
+        </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m3 l3">
@@ -48,7 +51,7 @@
                 <option value="{{cui.cuisine}}" selected >{{cui.cuisine}}</option>
                 {% else %}
                   <option value="{{cui.cuisine}}">{{cui.cuisine}}</option>
-                 {% endif %}
+              {% endif %}
             {% endfor %}
           </select>
           <label>Cuisines</label>
@@ -65,7 +68,7 @@
           <select id="difficulty" name="mode" class="validate">
             <option value="" disabled selected>Choose a mode</option>
             {% for dif in difficulty %}
-              {% if dif.mode == recipes.mode %}
+              {% if dif.mode == recipes.difficulty %}
                 <option value="{{dif.mode}}" selected>{{dif.mode}}</option>
                  {% else %}
                  <option value="{{dif.mode}}">{{dif.mode}}</option>

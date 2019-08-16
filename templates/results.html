@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="title">Results</h1>
+
+<div class="container results-recipes-container">
+    <h3>Results filtered ...</h3>
+    <div class="row">
+    {% for recipe in recipes %}
+    <div class="col s12 m6 l3">
+      <div class="card">
+        <div class="card-image">
+          <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src="{{recipe.image}}" alt="{{recipe.name}}-image" ></a>
+            <span class="card-title">{{recipe.name}}</span>
+            <div class="container-recipe-img-icons-btn">
+              <a class="btn-floating waves-effect waves-light brown fav-btn"><i class="material-icons">favorite</i></a>
+              <a class="btn-floating waves-effect waves-light brown share-btn"><i class="material-icons">share</i></a>
+              <a class="btn-floating waves-effect waves-light brown bookmark-btn"><i class="material-icons">bookmark_border</i></a>
+            </div>
+        </div>
+        <div class="recipe-info">
+            <h6 class="recipe-category">Category: <span>{{recipe.category}}</span></h6>
+            <h6 class="recipe-cuisine">Cuisine: <span>{{recipe.cuisine}}</span></h6>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <!--tbc no results found-->
+    {% if count == 0 %}
+        <div class="col s12 no-results">
+            <p>No results found ...</p>
+        </div>
+    {% endif %}
+    
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class="container pagination-container">
+    <ul class="pagination center-align">
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="active brown"><a href="#!">1</a></li>
+        <li class="waves-effect"><a href="#!">2</a></li>
+        <li class="waves-effect"><a href="#!">3</a></li>
+        <li class="waves-effect"><a href="#!">4</a></li>
+        <li class="waves-effect"><a href="#!">5</a></li>
+        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+</div>
+
+{% endblock %}

@@ -35,11 +35,11 @@ def insert_recipe():
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
-        'category': request.form.getlist('category'),
+        'category': request.form.get('category_type'),
         'cuisine': request.form.get('cuisine'),
         'serves':request.form.get('serves'),
         'readyIn':request.form.get('readyIn'),
-        'difficulty':request.form.getlist('mode'),
+        'difficulty':request.form.get('mode'),
         'ingredients':request.form.get('ingredient'),
         'instructions':request.form.get('instructions'),
         'tips': request.form.get('tips')
@@ -50,9 +50,11 @@ def insert_recipe():
 @app.route('/edit_recipe/<recipes_id>')
 def edit_recipe(recipes_id):
     the_recipe =  mongo.db.recipes.find_one({'_id': ObjectId(recipes_id)})
-    all_categories =  mongo.db.categories.find()
+    category_type =  mongo.db.categories.find()
+    cuisine = mongo.db.cuisines.find()
+    difficulty = mongo.db.difficulty.find()
     return render_template('edit-recipe.html', recipes=the_recipe,
-                           categories=all_categories)
+                    categories=category_type, cuisines=cuisine, difficulty=difficulty)
                            
 # Update recipe
 @app.route('/update_recipe/<recipes_id>', methods=['GET', 'POST'])
@@ -65,11 +67,11 @@ def update_recipe(recipes_id):
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
-        'category': request.form.getlist('category'),
+        'category': request.form.get('category_type'),
         'cuisine': request.form.get('cuisine'),
         'serves': request.form.get('serves'),
         'readyIn': request.form.get('readyIn'),
-        'difficulty': request.form.getlist('mode'),
+        'difficulty': request.form.get('mode'),
         'ingredients': request.form.get('ingredient'),
         'instructions': request.form.get('instructions'),
         'tips': request.form.get('tips')
@@ -112,7 +114,7 @@ def list_recipes():
         recipe_category = request.form.get("category_type")
         if not recipe_category == None:
             filters["category"] = recipe_category
-
+            
         recipe_cuisine = request.form.get("cuisine")
         if not recipe_cuisine == None:
             filters["cuisine"] = recipe_cuisine
@@ -120,12 +122,12 @@ def list_recipes():
         recipe_difficulty = request.form.get("difficulty")
         if not recipe_difficulty == None:
             filters["difficulty"] = recipe_difficulty
-
+            
         filter_recipes_count = filtered_results.count() 
         print(filter_recipes_count)
-        return render_template('search.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
+        return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
     else:
-        category.sort("category_type", 1)
+        category.sort("category", 1)
         return render_template('home.html', categories=category, cuisines=cuisine, difficulty=difficulty)
     
     
