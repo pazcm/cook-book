@@ -122,17 +122,13 @@ def list_recipes():
         recipe_difficulty = request.form.get("difficulty")
         if not recipe_difficulty == None:
             filters["difficulty"] = recipe_difficulty
-            
-        filter_recipes_count = filtered_results.count() 
-        print(filter_recipes_count)
+          
         return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
     else:
-        category.sort("category", 1)
-        return render_template('home.html', categories=category, cuisines=cuisine, difficulty=difficulty)
+       return render_template('home.html', categories=category, cuisines=cuisine, difficulty=difficulty)
     
     
-
-
+  
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

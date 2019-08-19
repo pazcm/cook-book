@@ -25,7 +25,10 @@
     </div>
     {% endfor %}
     <!--tbc no results found-->
-    {% if count == 0 %}
+    
+    {% for recipe in recipes %}
+            {% if recipe.id == recipes.category %}
+    
         <div class="col s12 no-results">
             <p>No results found ...</p>
         </div>
