@@ -112,7 +112,7 @@ def find_recipe():
 def search_results(q):
     results = []
     search_input = request.form.get('q')
-    if search_input == '':
+    if q.data['q'] == '':
         recipes = mongo.db.recipes
         results = recipes.all()
     if not results:
