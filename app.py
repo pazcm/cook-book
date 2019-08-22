@@ -45,6 +45,7 @@ def insert_recipe():
         'tips': request.form.get('tips')
         })
     return redirect(url_for('get_recipes'))
+    
 
 # Edit recipe
 @app.route('/edit_recipe/<recipes_id>')
@@ -98,7 +99,32 @@ def all_recipes():
 
 
 # Search box maybe?
+# test
 
+@app.route('/', methods=['GET', 'POST'])
+def find_recipe():
+    q=request.form.get('q')
+    if request.method == 'POST':
+        return search_results(q)
+    return render_template('find-recipe.html', form=q)
+    
+@app.route('/results')
+def search_results(q):
+    results = []
+    search_input = request.form.get('q')
+    if search_input == '':
+        recipes = mongo.db.recipes
+        results = recipes.all()
+    if not results:
+        flash('No results found!')
+        return redirect('/')
+    else:
+
+        # display results
+
+        return render_template('results.html', results=results)
+        
+# end test
 
 
 # Filters

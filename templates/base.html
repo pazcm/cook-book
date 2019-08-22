@@ -26,35 +26,44 @@
                             <div class="background">
                                 <img src="static/images/yellow-unsplash.jpg">
                             </div>
-                            <a href="#user"><img class="circle" src="static/images/toa-unsplash.jpg"></a>
-                            <a href="#name"><span class="white-text name">Mary Jane</span></a>
+                            <div class="user-image">
+                                <a href="#user"><img class="circle" src="static/images/chefs-hat.png"></a>
+                            </div>
+                            <div class="user-name">
+                                <a href="#name"><span class="white-text name">Mary Jane</span></a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#!"><i class="material-icons">local_dining</i>Link Logo Cook Book</a></li>
+                    <li><a href="{{url_for('list_recipes')}}"><i class="material-icons">local_dining</i>Go to Cook Book</a></li>
                     <li>
                         <div class="divider"></div>
                     </li>
-                    <li><a class="subheader">Browse</a></li>
-                    <li><a class="waves-effect" href="{{url_for('list_recipes')}}">Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">My Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
+                    <div class="burger-menu">
+                        <li><a class="subheader">Browse</a></li>
+                        <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
+                        <li><a class="waves-effect" href="{{url_for('add_recipe')}}">My Recipes</a></li>
+                        <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
+                    </div>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <!--end sidenav-->
                     
                 <!--navbar menu-->
-                <a class="waves-effect brand-logo center" href="{{url_for('get_recipes')}}"><img class="logo logo-nav" src="static/images/logo.png">logo</a>
+                <a class="waves-effect brand-logo center" href="{{url_for('get_recipes')}}"><img class="logo logo-nav" src="static/images/spoon.png"></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
                     <li><a class="waves-effect" href="{{url_for('list_recipes')}}">My Recipes</a></li>
                     <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
                 </ul>
+                <!--search box-->
                 <div class="search-box">
-                    <form action="" class="browser-default right">
+                    <form action="{{url_for('find_recipe')}}" method="POST" class="browser-default right">
                         <input id="search-input" placeholder="Find a recipe" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
                         <label for="search-input"><i class="material-icons search-icon active">search</i></label>
                     </form>
                 </div>
+                <!--end search box-->
+               
             </div>
             <!--end navebar menu-->
         </nav>
