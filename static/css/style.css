@@ -64,6 +64,10 @@ h3 {
   
 }
 
+.card {
+  height: 100%;
+}
+
 .card-title {
   bottom: 15px !important;
   
@@ -212,7 +216,6 @@ input.search-field:focus {
   margin-top:0;
 
 }
-
 
 span {
   color: rgba(0,0,0,0.87);
@@ -453,25 +456,38 @@ textarea {
     
   }
   
+  /* -- Logo -- */
   .brand-logo {
     width: 25%;
   }
   
 }
 
+@media only screen and (min-width: 993px) {
+  .row .col.l3 {
+    width: 50%;
+  }
+}
 
-@media (min-device-width: 1024px) {
+
+@media (min-width:1025px) {
   .container-recipe-img-icons-btn {
     left: 20px;
     right: 10px;
       
     }
     
+  .row .col.l3 {
+    width: 25%;
+  }
+  
+   /* -- Logo -- */  
   .brand-logo {
-    top: -31px;
-    
+    top: -21px;
+   
   }
     
 }
+
 
 
