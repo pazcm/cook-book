@@ -97,33 +97,22 @@ def recipe_detail(recipes_id):
 def all_recipes():
     return render_template('all-recipes.html', recipes = mongo.db.recipes.find())
 
-
-# Search box maybe?
-# test
-
-@app.route('/', methods=['GET', 'POST'])
-def find_recipe():
-    q=request.form.get('q')
-    if request.method == 'POST':
-        return search_results(q)
-    return render_template('find-recipe.html', form=q)
-    
-@app.route('/results')
-def search_results(q):
-    results = []
-    search_input = request.form.get('q')
-    if q.data['q'] == '':
-        recipes = mongo.db.recipes
-        results = recipes.all()
-    if not results:
-        flash('No results found!')
-        return redirect('/')
+# test Search box
+@app.route('/search_box/', methods=["POST"])
+def search_box():
+    search = request.form['q']
+    if (search != ''):
+        return redirect(url_for('results', q=search))
     else:
+        return render_template("recipes.html", recipes = mongo.db.recipes.find())
 
-        # display results
-
-        return render_template('results.html', results=results)
-        
+# Search results
+@app.route('/results/<q>')
+def results(q):
+    results = mongo.db.recipes.find(
+        {'$text': {'$search': q}})
+    return render_template("results.html", recipes=results)
+    
 # end test
 
 
