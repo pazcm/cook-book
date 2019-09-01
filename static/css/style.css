@@ -103,6 +103,20 @@ h3 {
   
 }
 
+.recipe-image {
+  padding: 5px;
+  border: solid 1px #EFEFEF;
+  
+}
+
+a:hover .recipe-image {
+  border: solid 1px #CCC;
+  -moz-box-shadow: 1px 1px 5px #999;
+  -webkit-box-shadow: 1px 1px 5px #999;
+  box-shadow: 1px 1px 5px #999;
+  cursor: auto;
+}
+
 .container-recipe-img-icons-btn {
   display: flex;
   justify-content: space-between;
@@ -113,9 +127,20 @@ h3 {
   
 }
 
-.btn-floating {
-  background-color: #c0c0c0;
+
+.btn-floating, .btn {
+  background-color:  #c0c0c0 !important;
+  
 }
+
+.btn-action1 .btn {
+  background-color: grey !important;
+}
+
+.card-recipe-edit-delete a {
+  color: white;
+}
+
 
 .pagination {
   margin-top: 50px;
@@ -132,8 +157,6 @@ h3 {
 .sidenav {
   background-color: #fffde7;
 }
-
-
 
 
 /* -- Search box -- */
@@ -280,6 +303,10 @@ textarea {
   
 }
 
+.btn-cancel {
+  background-color: grey;
+}
+
 
 /* -- Footer -- */
 
@@ -352,7 +379,7 @@ textarea {
   
   .recipe-info {
     display: block;
-    padding: 15px 30px 15px 30px;
+    padding: 21px 30px 15px 30px;
     margin-left: 40px;
     
   }
@@ -364,7 +391,7 @@ textarea {
   .recipe-extra-info {
     display: block;
     padding: 30px;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 40px;
     
   }
