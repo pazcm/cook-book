@@ -36,7 +36,7 @@ h1.title {
 h6 {
   padding-right: 10px;
   font-weight: 500;
-  color: #795548;
+  color: white;
   font-size: 1rem;
   
 }
@@ -370,61 +370,13 @@ textarea {
     
   }
 
+/* -- Recipe detail -- */
 
-   /* -- Recipe detail desktop -- */
   
-  .recipe-container {
-    margin: 20px;
-  }
   
-  .recipe-info {
-    display: block;
-    padding: 21px 30px 15px 30px;
-    margin-left: 40px;
-    
-  }
   
-  .recipe-info-details {
-    width: 25% !important;
-  }
-
-  .recipe-extra-info {
-    display: block;
-    padding: 30px;
-    margin-top: 30px;
-    margin-left: 40px;
-    
-  }
-  
-  .fas, .far {
-    padding-right: 15px;
-  }
-  
-  .recipe-category, .recipe-cuisine {
-    margin-top:0;
-    padding-bottom: 30px;
-  
-  }
-  
-  .recipe-serves, .recipe-readyIn, .recipe-difficulty {
-    padding-bottom: 25px;
-  }
   
 
-  ol {
-    padding-left: 18px;
-    
-  }
-  
-  .recipe-img-icons {
-    display: flex;
-    justify-content: center;
-    bottom: 60px;
-    position: relative;
-    
-  }
-  
-  
    /* -- home -- */
    
   .row-one-filter {
@@ -493,6 +445,67 @@ textarea {
 @media only screen and (min-width: 993px) {
   .row .col.l3 {
     width: 50%;
+  }
+  
+  /* -- Recipe detail -- */
+  
+  .recipe-container {
+    margin: 20px;
+    
+  }
+  
+  .recipe-details {
+    margin-left: 30px;
+    padding-left: 30px;
+    
+  }
+  
+  .recipe-info {
+    display: block;
+    padding: 21px 30px 15px 30px;
+    margin-left: 0px;
+    
+  }
+  
+  .recipe-info-details {
+    width: 25% !important;
+    
+  }
+
+  .recipe-extra-info {
+    display: block;
+    padding: 30px;
+    margin-top: 30px;
+    margin-left: 0px;
+    
+  }
+  
+  .fas, .far {
+    padding-right: 15px;
+  }
+  
+  .recipe-category, .recipe-cuisine {
+    margin-top:0;
+    padding-bottom: 30px;
+  
+  }
+  
+  .recipe-serves, .recipe-readyIn, .recipe-difficulty {
+    padding-bottom: 25px;
+  }
+  
+
+  ol {
+    padding-left: 18px;
+    
+  }
+  
+  .recipe-img-icons {
+    display: flex;
+    justify-content: center;
+    bottom: 60px;
+    position: relative;
+    
   }
 }
 
