@@ -22,6 +22,12 @@ nav .nav-wrapper {
   
 }
 
+.brand-logo {
+  top: 0;
+  width: 50%;
+   
+  }
+
 .title {
   text-align: center;
   color: #9e9e9e;
@@ -356,6 +362,7 @@ textarea {
 
 .btn-cancel {
   background-color: grey;
+  
 }
 
 
@@ -399,6 +406,7 @@ textarea {
 
 .links a:hover {
   color: white !important;
+  
 }
 
 
@@ -425,10 +433,11 @@ textarea {
     
   }
 
-/* -- Recipe detail -- */
-
-  
-  
+  /* -- Logo -- */  
+  .brand-logo {
+    width: 25%;
+     
+    }
   
   
 
@@ -488,11 +497,6 @@ textarea {
   .action-btns {
     text-align: center;
     
-  }
-  
-  /* -- Logo -- */
-  .brand-logo {
-    width: 25%;
   }
   
 }
@@ -574,11 +578,13 @@ textarea {
     
   .row .col.l3 {
     width: 25%;
+    
   }
   
    /* -- Logo -- */  
+   
   .brand-logo {
-    top: -21px;
+    top: -30px;
    
   }
     
