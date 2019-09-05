@@ -56,7 +56,8 @@
   </div>
 </div>
   <div class="card-recipe-edit">
-    <a class="waves-effect waves-light btn-medium" href="{{ url_for('edit_recipe', recipes_id=recipe._id) }}" ><i class="material-icons right">edit</i>Edit</a>
+    <p>Edit this recipe</p>
+    <a class="waves-effect waves-light btn-medium btn-floating" href="{{ url_for('edit_recipe', recipes_id=recipe._id) }}" ><i class="material-icons right">edit</i>Edit</a>
   </div>
 
 {% endblock %}
