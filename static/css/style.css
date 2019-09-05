@@ -66,6 +66,7 @@ h3 {
 
 .card {
   height: 100%;
+  
 }
 
 .card-title {
@@ -115,6 +116,7 @@ a:hover .recipe-image {
   -webkit-box-shadow: 1px 1px 5px #999;
   box-shadow: 1px 1px 5px #999;
   cursor: auto;
+  
 }
 
 .container-recipe-img-icons-btn {
@@ -135,10 +137,12 @@ a:hover .recipe-image {
 
 .btn-action1 .btn {
   background-color: grey !important;
+  
 }
 
 .material-icons, .card-recipe-edit-delete a {
   color: white;
+  
 }
 
 .card-recipe-edit-delete a:hover {
@@ -214,6 +218,34 @@ input.search-field:focus {
   padding-left: 15px;
   color: rgba(0, 0, 0, 0.54);
   
+}
+
+/* -- results page -- */
+
+.no-results {
+  display: flex;
+  justify-content: center;
+}
+
+
+ul.search-tips {
+  border: 1px solid silver;
+  background-color: #f8bbcf;
+  padding: 20px;
+ 
+  box-shadow: 5px 5px 10px grey;
+  
+}
+
+ul.search-tips li {
+  list-style-type: circle;
+  padding: 20px;
+  margin-left: 40px;
+  
+}
+
+ul.search-tips li a {
+  color: white;
 }
 
 

@@ -3,7 +3,7 @@
 <h1 class="title">Results</h1>
 
 <div class="container results-recipes-container">
-    <h3>Results filtered ...</h3>
+    <h3 class="">Results of your search:</h3>
     <div class="row">
     {% for recipe in recipes %}
     <div class="col s12 m6 l3">
@@ -23,6 +23,16 @@
         </div>
       </div>
     </div>
+    {% else %}
+      <div class="no-results"><h4>Sorry, no recipes found ...</h4></div>
+      <h6>Would you like to 'taste' again :P ?</h6>
+      <ul class="search-tips">
+        <li>Try browsing the <a class="waves-effect" href="#">Recipe Index</a></li>
+        <li>Try using the <a class="waves-effect" href="{{url_for('list_recipes')}}">Filter</a></li>
+        <li>Try searching by ingredient</li>
+        <li>Try searching by recipe name</li>
+        <li>It doesn't exist? Try to <a class="waves-effect" href="{{url_for('add_recipe')}}">add the recipe</a> to the cook book!</li>
+      </ul>
     {% endfor %}
   </div>
 </div>
