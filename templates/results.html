@@ -10,17 +10,13 @@
       <div class="card">
         <div class="card-image">
           <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src="{{recipe.image}}" alt="{{recipe.name}}-image" ></a>
-            <span class="card-title">{{recipe.name}}</span>
-            <div class="container-recipe-img-icons-btn">
-              <a class="btn-floating waves-effect waves-light brown fav-btn"><i class="material-icons">favorite</i></a>
-              <a class="btn-floating waves-effect waves-light brown share-btn"><i class="material-icons">share</i></a>
-              <a class="btn-floating waves-effect waves-light brown bookmark-btn"><i class="material-icons">bookmark_border</i></a>
-            </div>
+            
+            
         </div>
-        <div class="recipe-info">
-            <h6 class="recipe-category">Category: <span>{{recipe.category}}</span></h6>
-            <h6 class="recipe-cuisine">Cuisine: <span>{{recipe.cuisine}}</span></h6>
-        </div>
+        <div class="card-recipe-info">
+            <h4 class="card-title">{{recipe.name}}</h4>
+            <h6>{{recipe.cuisine}}</h6>
+          </div>
       </div>
     </div>
     {% else %}
