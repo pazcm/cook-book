@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-       <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Liu+Jian+Mao+Cao|Rock+Salt&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Liu+Jian+Mao+Cao|Rock+Salt&display=swap" rel="stylesheet">
         <!-- Materialize -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- custom CSS -->
@@ -41,8 +41,7 @@
                     <div class="burger-menu">
                         <li><a class="subheader">Browse</a></li>
                         <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
-                        <li><a class="waves-effect" href="{{url_for('add_recipe')}}">My Recipes</a></li>
-                        <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
+                        <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                     </div>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -52,8 +51,7 @@
                 <a class="waves-effect brand-logo center" href="{{url_for('get_recipes')}}"><img class="logo logo-nav" src="static/images/spoon.png"></a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('list_recipes')}}">My Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
+                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                 </ul>
                 <!--search box-->
                 <div class="search-box">
@@ -75,7 +73,7 @@
             <div class="container footer-container">
                 <div class="row">
                     <div class="col l6 s12 footer-social">
-                        <h5 class="white-text footer-title">Follow us</h5>
+                        <h5 class="grey-text text-lighten-3 footer-title">Follow us</h5>
                         <p class="grey-text text-lighten-4 footer-content">Enjoy cooking!</p>
                         <div class="social-icons">
                             <a class="btn-floating waves-effect waves-light brown"><i class="fab fa-instagram"></i></a>
@@ -86,9 +84,8 @@
                     <div class="col l4 offset-l2 s12 footer-links">
                         <!--<h5 class="white-text">Links</h5>-->
                         <ul class="links">
-                          <li><a class="grey-text text-lighten-3" href="{{url_for('all_recipes')}}">All recipes</a></li>
-                          <li><a class="grey-text text-lighten-3" href="#!">My recipes</a></li>
-                          <li><a class="grey-text text-lighten-3" href="{{url_for('add_recipe')}}">Add recipe</a></li>
+                          <li><a class="white-text" href="{{url_for('all_recipes')}}">Recipes</a></li>
+                          <li><a class="white-text" href="{{url_for('add_recipe')}}">Add recipe</a></li>
                         </ul>
                     </div>
                 </div>
