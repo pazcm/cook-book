@@ -252,6 +252,7 @@ input.search-field:focus {
 .no-results {
   display: flex;
   justify-content: center;
+  
 }
 
 
@@ -260,6 +261,8 @@ ul.search-tips {
   background-color: #f8bbcf;
   padding: 20px;
   box-shadow: 5px 5px 10px #999;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   
 }
 
@@ -272,8 +275,8 @@ ul.search-tips li {
 
 ul.search-tips li a {
   color: white;
+  
 }
-
 
 /* -- Recipe detail -- */
 

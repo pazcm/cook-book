@@ -3,15 +3,13 @@
 <h1 class="title">Results</h1>
 
 <div class="container results-recipes-container">
-    <h3 class="">Results of your search:</h3>
+    <h4 class="">Results of your search:</h4>
     <div class="row">
     {% for recipe in recipes %}
     <div class="col s12 m6 l3">
       <div class="card">
         <div class="card-image">
           <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src="{{recipe.image}}" alt="{{recipe.name}}-image" ></a>
-            
-            
         </div>
         <div class="card-recipe-info">
             <h4 class="card-title">{{recipe.name}}</h4>
@@ -20,8 +18,8 @@
       </div>
     </div>
     {% else %}
-      <div class="no-results"><h4>Sorry, no recipes found ...</h4></div>
-      <h6>Would you like to 'taste' again :P ?</h6>
+      <div class="no-results"><h5>Sorry, no recipes found ...</h5></div>
+      <p class="">Would you like to 'taste' again :P ?</p>
       <ul class="search-tips">
         <li>Try browsing the <a class="waves-effect" href="#">Recipe Index</a></li>
         <li>Try using the <a class="waves-effect" href="{{url_for('list_recipes')}}">Filter</a></li>
