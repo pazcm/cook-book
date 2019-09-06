@@ -71,7 +71,18 @@ h3 {
 }
 
 .card {
+  background-color: #f8bbd0;
   height: 100%;
+  border-radius: 25px;
+  border-bottom: solid 1px #EFEFEF;
+  
+}
+
+.card:hover {
+  -moz-box-shadow: 5px 5px 10px #999;
+  -webkit-box-shadow: 5px 5px 10px #999;
+  box-shadow: 5px 5px 10px #999;
+  
   
 }
 
@@ -89,11 +100,6 @@ h3 {
 
 .card-recipe-info a {
   color: #795548;
-  
-}
-
-.card {
-  background-color: #f8bbd0;
   
 }
 
@@ -242,8 +248,7 @@ ul.search-tips {
   border: 1px solid silver;
   background-color: #f8bbcf;
   padding: 20px;
- 
-  box-shadow: 5px 5px 10px grey;
+  box-shadow: 5px 5px 10px #999;
   
 }
 
@@ -502,8 +507,15 @@ textarea {
 }
 
 @media only screen and (min-width: 993px) {
+  
   .row .col.l3 {
     width: 50%;
+    
+  }
+  
+  .container {
+    width: 77%;
+    
   }
   
   /* -- Recipe detail -- */
