@@ -78,7 +78,16 @@ input[type=text]:not(.browser-default):focus:not([readonly]), textarea.materiali
     border-bottom: 1px solid #f8bbd0;
     -webkit-box-shadow: 0 1px 0 0 #f8bbd0;
     box-shadow: 0 1px 0 0 #f8bbd0;
-    
+}
+
+svg {
+  right: -10px !important;
+  fill: grey !important;
+  
+}
+
+svg:focus {
+  fill: #f8bbd0 !important;
 }
 
 .card {
@@ -341,30 +350,6 @@ ol {
   
 }
 
-
-/* -- all recipes view -- */
-
-.row-filter {
-  height: inherit !important;
-  
-}
-
-.filter-btn-all-recipes {
-  float: left !important;
-  
-}
-
-.row .col.l2.form-filter {
-  width: 33%;
-  
-}
-
-.form-filter .input-field {
-  width: 33% !important;
-  
-}
-
-
 /* -- Forms -- */
 
 .recipe-form {
@@ -487,13 +472,18 @@ textarea {
   
   
 
-   /* -- home -- */
+   /* -- home Filter -- */
    
-  .row-one-filter {
-    position: relative;
-    left: 100px;
-    height: 300px;
+  /*.row-one-filter {*/
+  /*  position: relative;*/
+  /*  left: 100px;*/
+  /*  height: 300px;*/
     
+  /*}*/
+  
+  .row-one-filter {
+    display: flex;
+    justify-content: center;
   }
   
    .row-two-filter {
@@ -501,10 +491,10 @@ textarea {
      
    }
   
-  .filter-btn {
-    width: 8% !important;
+  /*.filter-btn {*/
+  /*  width: 8% !important;*/
     
-  }
+  /*}*/
   
   
   /*-- Footer --*/
@@ -546,6 +536,29 @@ textarea {
     
   }
   
+  /* -- all recipes view -- */
+
+.row-filter {
+  height: inherit !important;
+  
+}
+
+.filter-btn-all-recipes {
+  float: left !important;
+  line-height: 3.5;
+  
+}
+
+.row .col.l2.form-filter {
+  width: 33%;
+  
+}
+
+.form-filter .input-field {
+  width: 70% !important;
+  
+}
+  
 }
 
 @media only screen and (min-width: 993px) {
@@ -556,7 +569,7 @@ textarea {
   }
   
   .container {
-    width: 77%;
+    width: 90%;
     
   }
   
