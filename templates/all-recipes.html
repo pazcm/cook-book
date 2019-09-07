@@ -3,6 +3,51 @@
 <h1 class="title">All recipes view</h1>
   <div class="container all-recipes-container">
     <h3>Hello All recipes view - recipes</h3>
+    <!--filter-->
+    <div class="top-filter-container">
+            <div class="row">
+                <form action="/list_recipes" class="filter-container filter-container-all-recipes" method="POST">
+                    <div class="form-row row-filter row-one-filter ">
+                        <div class="col s12 m3 l2 form-filter">
+                            <div class="input-field col s12 m12 l3">
+                                <select id="category" name="category_type">
+                                    <option value="" disabled selected>Category</option>
+                                    {% for category in categories %}
+                                    <option value="{{category.category_type}}">{{category.category_type}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col s12 m3 l2 form-filter">
+                            <div class="input-field col s12 m12 l3">
+                                <select id="cuisine" name="cuisine">
+                                    <option value="" disabled selected>Cuisine</option>
+                                    {% for cui in cuisines %}
+                                    <option value="{{cui.cuisine}}">{{cui.cuisine}}</option>
+                                    {% endfor %}
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col s12 m3 l2 form-filter">
+                            <div class="input-field col s12 m12 l3">
+                                <select id="difficulty" name="difficulty">
+                                    <option value="" disabled selected>Difficulty</option>
+                                    {% for dif in difficulty %}
+                                    <option value="{{dif.mode}}">{{dif.mode}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col s6 m6 l8 filter-btn filter-btn-all-recipes ">
+                            <input type="submit" value="Filter" class="btn waves-effect waves-light brown">
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    <!--end filter-->
     <div class="row">
       {% for recipe in recipes %}
       <div class="col s12 m6 l3">

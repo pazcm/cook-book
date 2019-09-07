@@ -92,10 +92,32 @@ def recipe_detail(recipes_id):
     return render_template('recipe-detail.html', recipe=mongo.db.recipes.find_one({'_id':ObjectId(recipes_id)}))
 
 
-# All recipes
+# All recipes with filters
 @app.route('/all_recipes', methods=["GET", "POST"])
 def all_recipes():
-    return render_template('all-recipes.html', recipes = mongo.db.recipes.find())
+
+    category = mongo.db.categories.find()
+    cuisine = mongo.db.cuisines.find()
+    difficulty = mongo.db.difficulty.find()
+    filters = {}
+    filtered_results = mongo.db.recipes.find(filters)
+    
+    if request.method == "POST":
+        recipe_category = request.form.get("category_type")
+        if not recipe_category == None:
+            filters["category"] = recipe_category
+            
+        recipe_cuisine = request.form.get("cuisine")
+        if not recipe_cuisine == None:
+            filters["cuisine"] = recipe_cuisine
+        
+        recipe_difficulty = request.form.get("difficulty")
+        if not recipe_difficulty == None:
+            filters["difficulty"] = recipe_difficulty
+          
+        return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
+
+    return render_template('all-recipes.html', recipes = mongo.db.recipes.find(), categories=category, cuisines=cuisine, difficulty=difficulty)
 
 # test Search box
 @app.route('/search_box/', methods=["POST"])

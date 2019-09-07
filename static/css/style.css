@@ -26,7 +26,7 @@ nav .nav-wrapper {
   top: 0;
   width: 50%;
    
-  }
+}
 
 .title {
   text-align: center;
@@ -341,6 +341,30 @@ ol {
   
 }
 
+
+/* -- all recipes view -- */
+
+.row-filter {
+  height: inherit !important;
+  
+}
+
+.filter-btn-all-recipes {
+  float: left !important;
+  
+}
+
+.row .col.l2.form-filter {
+  width: 33%;
+  
+}
+
+.form-filter .input-field {
+  width: 33% !important;
+  
+}
+
+
 /* -- Forms -- */
 
 .recipe-form {
@@ -434,6 +458,7 @@ textarea {
 
 
 /* -- Media Queries -- */
+
 @media (min-width: 600px) { 
   
    /* -- Search box -- */
@@ -478,6 +503,7 @@ textarea {
   
   .filter-btn {
     width: 8% !important;
+    
   }
   
   
