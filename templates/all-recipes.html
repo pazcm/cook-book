@@ -6,10 +6,10 @@
     <!--filter-->
     <div class="top-filter-container">
             <div class="row">
-                <form action="/list_recipes" class="filter-container filter-container-all-recipes" method="POST">
+                <form action="/list_recipes" class="filter-container filter-container-home" method="POST">
                     <div class="form-row row-filter row-one-filter ">
-                        <div class="col s12 m3 l3 form-filter">
-                            <div class="input-field col s12 m12 l3">
+                        <div class="col s12 m3 l4 form-filter">
+                            <div class="input-field col s12 m12 l4">
                                 <select id="category" name="category_type">
                                     <option value="" disabled selected>Category</option>
                                     {% for category in categories %}
@@ -18,8 +18,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col s12 m3 l3 form-filter">
-                            <div class="input-field col s12 m12 l3">
+                        <div class="col s12 m3 l4 form-filter">
+                            <div class="input-field col s12 m12 l4">
                                 <select id="cuisine" name="cuisine">
                                     <option value="" disabled selected>Cuisine</option>
                                     {% for cui in cuisines %}
@@ -28,8 +28,8 @@
                               </select>
                             </div>
                         </div>
-                        <div class="col s12 m3 l3 form-filter">
-                            <div class="input-field col s12 m12 l3">
+                        <div class="col s12 m3 l4 form-filter">
+                            <div class="input-field col s12 m12 l4">
                                 <select id="difficulty" name="difficulty">
                                     <option value="" disabled selected>Difficulty</option>
                                     {% for dif in difficulty %}
@@ -38,10 +38,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col s6 m3 l3 form-filter filter-btn filter-btn-all-recipes ">
+                        <div class="col s6 m3 l4 form-filter filter-btn filter-recipes-btn ">
                             <input type="submit" value="Filter" class="btn waves-effect waves-light brown">
                         </div>
-                        
                     </div>
                 </form>
             </div>

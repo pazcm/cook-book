@@ -88,6 +88,7 @@ svg {
 
 svg:focus {
   fill: #f8bbd0 !important;
+  
 }
 
 .card {
@@ -430,7 +431,6 @@ textarea {
   justify-content: space-between;
   align-content: flex-end;
   
-  
 }
 
 
@@ -472,18 +472,24 @@ textarea {
   
   
 
-   /* -- home Filter -- */
+  /* -- home Filter -- */
+  
+  .home-container {
+    height: 100vh;
+    padding-top: 150px;
    
-  /*.row-one-filter {*/
-  /*  position: relative;*/
-  /*  left: 100px;*/
-  /*  height: 300px;*/
+  }
+   
+  .top-filter-container {
+    display: flex;
     
-  /*}*/
+    
+  }
   
   .row-one-filter {
     display: flex;
     justify-content: center;
+    
   }
   
    .row-two-filter {
@@ -491,10 +497,12 @@ textarea {
      
    }
   
-  /*.filter-btn {*/
-  /*  width: 8% !important;*/
+  .filter-recipes-btn .btn {
+    text-align: center;
+    top: 20px;
+    left: 56px;
     
-  /*}*/
+  }
   
   
   /*-- Footer --*/
