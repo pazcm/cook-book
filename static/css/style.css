@@ -10,6 +10,7 @@ body {
   
 }
 
+
 nav .nav-wrapper {
   background-color: #f8bbd0;
   margin-right: 0;
@@ -72,6 +73,7 @@ h3 {
 
 .select-wrapper input.select-dropdown:focus {
     border-bottom: 1px solid  #f8bbd0;
+    
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
@@ -244,8 +246,9 @@ input.search-field:hover {
 }
 
 input.search-field:focus {
-  width: 100vw;
+  width: 95vw;
   padding: 8px 8px 8px 50px;
+
   
 }
 
