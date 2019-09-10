@@ -49,7 +49,8 @@
                 <!--end sidenav-->
                     
                 <!--navbar menu-->
-                <a class="waves-effect brand-logo center" href="{{url_for('list_recipes')}}"><img class="logo logo-nav" src="static/images/spoon.png"></a>
+                <a class="waves-effect brand-logo center" href="{{url_for('list_recipes')}}"><img class="logo logo-nav" src="{{url_for('static', filename='images/spoon.png')}}"></a>
+            
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a class="waves-effect" href="{{url_for('list_recipes')}}">Home</a></li>
                     <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
