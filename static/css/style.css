@@ -57,8 +57,7 @@ h3 {
   float: none !important;
   margin-left: auto;
   margin-right: auto;
-  /*width: 33% !important;*/
-  
+
 }
 
 .filter-btn input {
@@ -502,7 +501,7 @@ textarea {
   .filter-recipes-btn .btn {
     text-align: center;
     top: 20px;
-    left: 56px;
+    left: 0;
     
   }
   
@@ -567,13 +566,8 @@ textarea {
 .form-filter .input-field {
   width: 100% !important;
   
-}
+ }
 
-.filter-recipes-btn .btn {
-  left: 0;
-    
-  }
-  
 }
 
 @media only screen and (min-width: 993px) {
@@ -648,6 +642,12 @@ textarea {
     position: relative;
     
   }
+  
+  .filter-recipes-btn .btn {
+  left: 56px;
+    
+  }
+
 }
 
 

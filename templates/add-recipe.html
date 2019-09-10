@@ -28,8 +28,12 @@
              <label for="category_type" class="category-label">Category</label>
             <div class="input-field col s12">
               {% for cat in categories %}
+              <p>
+                <label>
                 <input name="category_type" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" />
                   <span>{{cat.category_type}}</span>
+                </label>
+              </p>
               {% endfor %}
             </div>
           </div>
