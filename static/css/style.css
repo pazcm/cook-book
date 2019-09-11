@@ -540,6 +540,14 @@ textarea {
     
   }
   
+  .category-choice {
+    display: flex;
+  }
+  
+  .category-choice p {
+    padding-right: 20px;
+  }
+  
   .action-btns {
     text-align: center;
     
@@ -692,5 +700,11 @@ textarea.materialize-textarea:focus:not([readonly])+label {
   
 }
 
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: #f8bbcf !important;
+    
+}
 
-
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+    border: 2px solid #f8bbcf !important;
+}
