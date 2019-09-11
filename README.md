@@ -44,7 +44,7 @@ Database Schema > /database-schema.png
 
 ## Technologies Used
 
-### IDE Cloud9](console.aws.amazon.com/cloud9/ide)
+### [IDE Cloud9](console.aws.amazon.com/cloud9/ide)
 #### The project uses an online IDE for development.
 
 ### [Git/GitHub](https://github.com)
@@ -56,7 +56,7 @@ Database Schema > /database-schema.png
 ### [HTML5](https://html.spec.whatwg.org/multipage/)
 #### The project uses semantic **HTML5** elements to structure and present the content in a consistent way following the W3C standards.
 
-### [Materialize] (https://materializecss.com)
+### [Materialize](https://materializecss.com)
 #### The project uses Materialize as a responsive FE framework taking default stylings and components.
 
 ### [JQuery](https://jquery.com)

@@ -26,16 +26,20 @@
         <div class="row">
           <div class="col s12">
             <label for="category_type" class="category-label">Category</label>
-              <div class="input-field col s12">
+              <div class="input-field col s12 category-choice">
               <!--testing-->
               {% for cat in categories %}
                 {% if cat.category_type == recipes.category %}
-                <input name="category" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" checked />
+                <input name="category" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" checked/>
                   <span>{{cat.category_type}}</span>
                 </label>
                 {% else %}
-                <input type="radio" name="category" id="{{cat.category_type}}" class="validate"/>
-                  <span>{{cat.category_type}}</span>
+                <p>
+                  <label>
+                  <input name="category" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" />
+                    <span>{{cat.category_type}}</span>
+                  </label>
+                </p>
                 {% endif %}
               {% endfor %}
             <!--testing-->
