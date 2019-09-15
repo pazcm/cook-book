@@ -42,8 +42,7 @@ Allows user to follow the webapp.
 
 ## Left to implement
 #### Sign up/in .- Registration functionality to allow users create an author profile and be able to save, like and share recipes.
-(Secure user authentication (e.g. via passwords) is not required for this particular project.)
-
+Secure user authentication was not required for this project, is something that I would like to implement in the future together with the following funtionalities remained:
 #### Like recipe .- 
 Like function which will allow users give feedback to other users and track the recipes they like.
 #### Share recipe .- 
@@ -115,7 +114,7 @@ Results page:
 - Category radio buttons in form. After adding raido buttons in the app form (for add and edit recipe) using Materialize framework, had no selection when clicking in a category.
 Fixed by including the <label> tags for each input.
 - Path Image broken in recipe detail view, getting a few 404 error for images.
-Fixed by using jinja's url_rot method <img src="{{url_for('static' filename='images/example.jpg')}}"> instead of hardcode the filepath, with <img src="static/images/example.jpg">
+Fixed by using jinja's url_root method `<img src="{{url_for('static' filename='images/example.jpg')}}">` instead of hardcode the filepath, with `<img src="static/images/example.jpg">`
 
 
 ## Deployment
@@ -142,11 +141,15 @@ My app lives here: https://online-cook-book-app.herokuapp.com/
 http://stackoverflow.com/
 https://codepen.io/j_holtslander/pen/wXEWqe
 https://flask.palletsprojects.com/en/1.0.x/quickstart/
+https://www.fullstackpython.com/flask.html
+https://dzone.com/articles/flask-101-how-to-add-a-search-form
 https://www.mongodb.com/blog
 
 ### Content / Media
 The images and some content was extracted around the web, from different pages such us https://www.tasteatlas.com/ for testing/studying purpose, no for production or comercial uses.
-There are some changes/variations from the initial wireframes, such as the placement of the Logo or the kind of Filter election which was modified for a better user experience.
+
+#### Note:
+There was some changes/variations from the initial wireframes, such as the placement of the Logo or the kind of Filter election which was modified for a better user experience.
 
 ### Acknowledgements
 Thanks to my Mentor for the feedback and help during the development and many Thanks too to the Tutor support from Code Institute for their help with several issues.

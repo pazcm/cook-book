@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Liu+Jian+Mao+Cao|Rock+Salt&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Give+You+Glory&display=swap" rel="stylesheet">
         <!-- Materialize -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!-- custom CSS -->
@@ -24,10 +23,10 @@
                     <li>
                         <div class="user-view">
                             <div class="background">
-                                <img src="static/images/yellow-unsplash.jpg">
+                                <img src="static/images/yellow-unsplash.jpg" alt="yellow bg">
                             </div>
                             <div class="user-image">
-                                <a href="#user"><img class="circle" src="static/images/chefs-hat.png"></a>
+                                <a href="#user"><img class="circle" src="static/images/chefs-hat.png" alt="chef hat"></a>
                             </div>
                             <div class="user-name">
                                 <a href="#name"><span class="white-text name">Mary Jane</span></a>
@@ -38,18 +37,18 @@
                     <li>
                         <div class="divider"></div>
                     </li>
-                    <div class="burger-menu">
+                    
                         <li><a class="subheader">Browse</a></li>
                         <li><a class="waves-effect" href="{{url_for('list_recipes')}}">Home</a></li>
                         <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
                         <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-                    </div>
+                   
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <!--end sidenav-->
                     
                 <!--navbar menu-->
-                <a class="waves-effect brand-logo center" href="{{url_for('list_recipes')}}"><img class="logo logo-nav" src="{{url_for('static', filename='images/spoon.png')}}"></a>
+                <a class="waves-effect brand-logo center" href="{{url_for('list_recipes')}}"><img class="logo logo-nav" src="{{url_for('static', filename='images/spoon.png')}}" alt="spoon logo"></a>
             
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a class="waves-effect" href="{{url_for('list_recipes')}}">Home</a></li>
@@ -108,9 +107,9 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Search box -->
-        <script type="text/javascript" src="static/js/search-box.js"></script>
+        <script src="static/js/search-box.js"></script>
         <!-- Collapsible Sidenav  -->
-        <script type="text/javascript">
+        <script>
             $(document).ready(function () {
                 $('.sidenav').sidenav();
             });
@@ -122,7 +121,7 @@
             });
         </script>
         <!-- Form select -->
-        <script type="text/javascript">
+        <script>
             $(document).ready(function(){
                 $('select').formSelect();
             });
