@@ -3,8 +3,6 @@
 The purpose of this web app is to provide users with an online recipes book where they can add, update or delete their recipes so that it generates a wide variety of recipes from around the world to be referred.
 Users can get recipes using a search box by entering a recipe name or ingredient as well as through a filter where the recipes are sorted by category, cuisine and difficulty.
 
-sitemap > add link to site map
-
 The web app shows a home page with the filter, a general view of all the recipes added by the users to the cook book; a detail view per recipe displaying the name of the recipe, a picture, the category, the cuisine, the serves, the preparation time, the difficulty, the ingredients, the instructions and tips to prepare the recipe. Also there is a general view of all recipes from where the user can edit, delete and view the recipes.
 
 ## UX
@@ -20,34 +18,42 @@ Edit or delete a recipe is also available for each recipe in the recipe detail v
 
 ### Assets
 User stories >  https://github.com/pazcm/cook-book/pre-dev/user-stories.png
+
 Wireframes >  https://github.com/pazcm/cook-book/pre-dev/wireframes
-Database Schemas >
+
+Database Schemas examples > https://github.com/pazcm/cook-book/pre-dev/db schemas
 
 
 ## Features
-===========
-
-### Main Navigation widesite .- Allows user to navigate through the site.
-### Search box .- Allows user to search recipes by name and/or ingredient.
-### Filter .- Allows user filter by category, cuisine and difficulty to find a recipe.
-### Add recipe Form .- Allows user to add a new recipe to the webapp.
-### Edit recipe Form .- Allows user to modify a recipe in the webapp.
-### Delete recipe .- Allows user to delete a recipe from the webapp.
-### Follow Social networks .- Allows user to follow the webapp.
+#### Main Navigation widesite.-
+Allows user to navigate through the site.
+#### Search box .- 
+Allows user to search recipes by name and/or ingredient.
+#### Filter .- 
+Allows user filter by category, cuisine and difficulty to find a recipe.
+#### Add recipe Form .- 
+Allows user to add a new recipe to the webapp.
+#### Edit recipe Form .- 
+Allows user to modify a recipe in the webapp.
+#### Delete recipe .- 
+Allows user to delete a recipe from the webapp.
+#### Follow Social networks .- 
+Allows user to follow the webapp.
 
 ## Left to implement
-====================
-### Sign up/in .- Registration functionality to allow users create an author profile and be able to save, like and share recipes.
+#### Sign up/in .- Registration functionality to allow users create an author profile and be able to save, like and share recipes.
 (Secure user authentication (e.g. via passwords) is not required for this particular project.)
 
-### Like recipe .- Like function which will allow users give feedback to other users and track the recipes they like.
-### Share recipe .- Share funciton which will allow users share a recipe in their social networks.
-### Save recipe .- Save function which will allow users to save their favourites recipes.
-### Load more .- Load more button in all recipes view to load more recipes if they exists.
+#### Like recipe .- 
+Like function which will allow users give feedback to other users and track the recipes they like.
+#### Share recipe .- 
+Share funciton which will allow users share a recipe in their social networks.
+#### Save recipe .- 
+Save function which will allow users to save their favourites recipes.
+#### Load more .- 
+Load more button in all recipes view to load more recipes if they exists.
 
 ## Technologies Used
-====================
-
 ### [IDE Cloud9](console.aws.amazon.com/cloud9/ide)
 #### The project uses an online IDE for development.
 
@@ -85,7 +91,6 @@ Database Schemas >
 #### the project uses the hosting platform **Heroku** to deploy and run the app.
 
 ## Testing
-
 During development Manual testing for checking work functionalities and behaviours as well as responsive design was conducted continuously using Chrome browser. Chrome and Chrome Developer Tools were the main browser and tool used for testing. Moreover, the site was tested using Firefox and Safari browsers.
 All features and each modification was checked in Chrome, Firefox and Safari browsers and tested using developer tools at full width resolution. As well as using several devices emulators with different screen sizes for Responsive testing; such as Nexus 5X, Nexus 10, Galaxy S5, iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X, iPad and iPad Pro.
 #### HTML was validated using the Markup Validation Service provided by The World Wide Web Consortium: https://validator.w3.org/
@@ -144,5 +149,4 @@ The images and some content was extracted around the web, from different pages s
 There are some changes/variations from the initial wireframes, such as the placement of the Logo or the kind of Filter election which was modified for a better user experience.
 
 ### Acknowledgements
-
 Thanks to my Mentor for the feedback and help during the development and many Thanks too to the Tutor support from Code Institute for their help with several issues.
