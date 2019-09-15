@@ -19,30 +19,34 @@ A link for adding a recipe is available widesite making possible to insert a rec
 Edit or delete a recipe is also available for each recipe in the recipe detail view and in a general view.
 
 ### Assets
-User stories >/user-stories.png
-Wireframes > /wireframes
-Database Schema > /database-schema.png
+User stories >  https://github.com/pazcm/cook-book/pre-dev/user-stories.png
+Wireframes >  https://github.com/pazcm/cook-book/pre-dev/wireframes
+Database Schemas >
 
 
 ## Features
+===========
 
-### Main Navigation widesite
-### Search box
-### Filter
-### Add recipe Form
-### Edit recipe Form
-### Delete recipe
-### Follow Social networks
+### Main Navigation widesite .- Allows user to navigate through the site.
+### Search box .- Allows user to search recipes by name and/or ingredient.
+### Filter .- Allows user filter by category, cuisine and difficulty to find a recipe.
+### Add recipe Form .- Allows user to add a new recipe to the webapp.
+### Edit recipe Form .- Allows user to modify a recipe in the webapp.
+### Delete recipe .- Allows user to delete a recipe from the webapp.
+### Follow Social networks .- Allows user to follow the webapp.
 
 ## Left to implement
-### Sign up/in
+====================
+### Sign up/in .- Registration functionality to allow users create an author profile and be able to save, like and share recipes.
 (Secure user authentication (e.g. via passwords) is not required for this particular project.)
 
-### Like recipe
-### Share recipe
-### Save recipe
+### Like recipe .- Like function which will allow users give feedback to other users and track the recipes they like.
+### Share recipe .- Share funciton which will allow users share a recipe in their social networks.
+### Save recipe .- Save function which will allow users to save their favourites recipes.
+### Load more .- Load more button in all recipes view to load more recipes if they exists.
 
 ## Technologies Used
+====================
 
 ### [IDE Cloud9](console.aws.amazon.com/cloud9/ide)
 #### The project uses an online IDE for development.
@@ -87,8 +91,27 @@ All features and each modification was checked in Chrome, Firefox and Safari bro
 #### HTML was validated using the Markup Validation Service provided by The World Wide Web Consortium: https://validator.w3.org/
 #### CSS was validated using the CSS Validation Service provided by The World Wide Web Consortium: https://jigsaw.w3.org/css-validator/
 
+##### Test cases:
+Add recipe:
+1. From the main menu or from the second link in the footer, go to ‘Add recipe’ link.
+2. Try to submit a new recipe and verify that an error message about the required fields appears
+3. Fill up all fields required and try to submit the recipe and verify that it was added to the database and showed in ‘All Recipes’ view.
+4. From there or from the recipe detail view try to ‘Edit / Delete the recipe’ and verify that this is accomplished.
+
+
+Results page:
+1. From the navigation bar enter a recipe name in the search box and verify that you are redirect to a results page.
+2. Try to enter an ingredient and verify that you are redirect to a results page.
+3. Try to enter an invalid word and verify that some options/tips are given.
+
+
 ### Issues
- ... ...
+
+- Category radio buttons in form. After adding raido buttons in the app form (for add and edit recipe) using Materialize framework, had no selection when clicking in a category.
+Fixed by including the <label> tags for each input.
+- Path Image broken in recipe detail view, getting a few 404 error for images.
+Fixed by using jinja's url_rot method <img src="{{url_for('static' filename='images/example.jpg')}}"> instead of hardcode the filepath, with <img src="static/images/example.jpg">
+
 
 ## Deployment
 
@@ -111,15 +134,15 @@ pseudo pip3 freeze --local > requirements.txt >> and push to heroku
 My app lives here: https://online-cook-book-app.herokuapp.com/
 
 ## Credits
+http://stackoverflow.com/
+https://codepen.io/j_holtslander/pen/wXEWqe
+https://flask.palletsprojects.com/en/1.0.x/quickstart/
+https://www.mongodb.com/blog
 
-... ... 
-
-### Content
-... .. ...
-
-### Media
-... ...
+### Content / Media
+The images and some content was extracted around the web, from different pages such us https://www.tasteatlas.com/ for testing/studying purpose, no for production or comercial uses.
+There are some changes/variations from the initial wireframes, such as the placement of the Logo or the kind of Filter election which was modified for a better user experience.
 
 ### Acknowledgements
 
-... .. ...
+Thanks to my Mentor for the feedback and help during the development and many Thanks too to the Tutor support from Code Institute for their help with several issues.
