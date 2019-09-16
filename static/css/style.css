@@ -440,6 +440,18 @@ textarea {
   
 }
 
+.link-back {
+  float: right;
+}
+
+.link-back a {
+  color: silver;
+}
+
+.link-back a:hover {
+  color: #eee
+}
+
 
 
 
