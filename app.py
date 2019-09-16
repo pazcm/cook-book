@@ -119,7 +119,7 @@ def all_recipes():
 
     return render_template('all-recipes.html', recipes = mongo.db.recipes.find(), categories=category, cuisines=cuisine, difficulty=difficulty)
 
-# test Search box
+# Search box
 @app.route('/search_box/', methods=["POST"])
 def search_box():
     search = request.form['q']
@@ -135,9 +135,6 @@ def results(q):
         {'$text': {'$search': q}})
     return render_template("results.html", recipes=results)
     
-# end test
-
-
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
 def list_recipes():

@@ -21,7 +21,7 @@ User stories >  https://github.com/pazcm/cook-book/pre-dev/user-stories.png
 
 Wireframes >  https://github.com/pazcm/cook-book/pre-dev/wireframes
 
-Database Schemas examples > https://github.com/pazcm/cook-book/pre-dev/db schemas
+Database Schemas examples > https://github.com/pazcm/cook-book/pre-dev/db-schemas
 
 
 ## Features
@@ -87,7 +87,7 @@ Load more button in all recipes view to load more recipes if they exists.
 #### The project uses **Flask**, Python BE framework to create the web app alongs with the Python templates' engine **[Jinja2]**(http://jinja.pocoo.org/)
 
 ### [Heroku](https://www.heroku.com/home)
-#### the project uses the hosting platform **Heroku** to deploy and run the app.
+#### The project uses the hosting platform **Heroku** to deploy and run the app.
 
 ## Testing
 During development Manual testing for checking work functionalities and behaviours as well as responsive design was conducted continuously using Chrome browser. Chrome and Chrome Developer Tools were the main browser and tool used for testing. Moreover, the site was tested using Firefox and Safari browsers.
@@ -111,10 +111,11 @@ Results page:
 
 ### Issues
 
-- Category radio buttons in form. After adding raido buttons in the app form (for add and edit recipe) using Materialize framework, had no selection when clicking in a category.
+- Category radio buttons in form. After adding raido buttons in the app form (for add and edit recipe) using Materialize framework, had no selection when clicking in a category.-
 Fixed by including the <label> tags for each input.
-- Path Image broken in recipe detail view, getting a few 404 error for images.
+- Path Image broken in recipe detail view, getting a few 404 error for images.-
 Fixed by using jinja's url_root method `<img src="{{url_for('static' filename='images/example.jpg')}}">` instead of hardcode the filepath, with `<img src="static/images/example.jpg">`
+- Edit Recipe issue. After editing twice information is gone ...
 
 
 ## Deployment
