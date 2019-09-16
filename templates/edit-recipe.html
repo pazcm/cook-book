@@ -32,14 +32,14 @@
                 {% if cat.category_type == recipes.category %}
                 <p>
                   <label>
-                <input name="category" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" checked/>
+                <input name="category_type" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" checked/>
                   <span>{{cat.category_type}}</span>
                 </label>
                 </p>
                 {% else %}
                 <p>
                   <label>
-                  <input name="category" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" />
+                  <input name="category_type" type="radio" value="{{cat.category_type}}" id="{{cat.category_type}}" class="validate" />
                     <span>{{cat.category_type}}</span>
                   </label>
                 </p>
