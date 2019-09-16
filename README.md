@@ -50,7 +50,7 @@ Share funciton which will allow users share a recipe in their social networks.
 #### Save recipe .- 
 Save function which will allow users to save their favourites recipes.
 #### Load more .- 
-Load more button in all recipes view to load more recipes if they exists.
+Load more button in all recipes view to load more recipes if they exist.
 
 ## Technologies Used
 ### [IDE Cloud9](console.aws.amazon.com/cloud9/ide)
@@ -115,7 +115,8 @@ Results page:
 Fixed by including the <label> tags for each input.
 - Path Image broken in recipe detail view, getting a few 404 error for images.-
 Fixed by using jinja's url_root method `<img src="{{url_for('static' filename='images/example.jpg')}}">` instead of hardcode the filepath, with `<img src="static/images/example.jpg">`
-- Edit Recipe issue. After editing twice information is gone ...
+- Edit Recipe template issue, the information was missed after editing a recipe due a bug in the 'category' form field
+Fixed by pointed the right category name to the update function.
 
 
 ## Deployment
@@ -140,10 +141,15 @@ My app lives here: https://online-cook-book-app.herokuapp.com/
 
 ## Credits
 http://stackoverflow.com/
+
 https://codepen.io/j_holtslander/pen/wXEWqe
+
 https://flask.palletsprojects.com/en/1.0.x/quickstart/
+
 https://www.fullstackpython.com/flask.html
+
 https://dzone.com/articles/flask-101-how-to-add-a-search-form
+
 https://www.mongodb.com/blog
 
 ### Content / Media
