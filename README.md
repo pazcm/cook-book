@@ -137,7 +137,7 @@ pseudo pip3 freeze --local > requirements.txt >> and push to heroku
 8. From heroku platform / settings tab => I set the variables for the server instance to run the app >> Config Vars - IP: 0.0.0.0 / PORT: 5000
 9. Finally is deployed and I go to 'Open app' from Heroku GUI
 
-My app lives here: https://www.cook-book.com/
+My app lives here: cook-book
 
 ## Credits
 http://stackoverflow.com/
