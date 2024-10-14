@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, flash, render_template, redirect, request, url_for
 import logging
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -169,11 +169,7 @@ def list_recipes():
        return render_template('index.html', categories=category, cuisines=cuisine, difficulty=difficulty)
     
     
-# if __name__ == '__main__':
-#     app.run(host=os.environ.get('IP'),
-#             port=int(os.environ.get('PORT')),
-#             debug=True)
-            
-# Ensure the app runs only when executed directly
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get('PORT')),
+            debug=True)
