@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
+import logging
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -14,8 +15,11 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-    # return "Welcome to the Cook Book!"
-    return render_template("index.html")
+    try:
+        return render_template("index.html")
+    except Exception as e:
+        app.logger.error(f"Error occurred: {str(e)}")
+        return "An error occurred", 500
 
 @app.route('/get_recipes')
 def get_recipes():
