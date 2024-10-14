@@ -86,12 +86,12 @@ Load more button in all recipes view to load more recipes if they exist.
 ### [Flask](https://palletsprojects.com/p/flask/)
 #### The project uses **Flask**, Python BE framework to create the web app alongs with the Python templates' engine **[Jinja2]**(http://jinja.pocoo.org/)
 
-### [Heroku](https://www.heroku.com/home)
-#### The project uses the hosting platform **Heroku** to deploy and run the app.
+### [Vercel](https://vercel.com/)
+#### The project uses the hosting platform **Vercel** to deploy and run the app.
 
 ## Testing
-During development Manual testing for checking work functionalities and behaviours as well as responsive design was conducted continuously using Chrome browser. Chrome and Chrome Developer Tools were the main browser and tool used for testing. Moreover, the site was tested using Firefox and Safari browsers.
-All features and each modification was checked in Chrome, Firefox and Safari browsers and tested using developer tools at full width resolution. As well as using several devices emulators with different screen sizes for Responsive testing; such as Nexus 5X, Nexus 10, Galaxy S5, iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X, iPad and iPad Pro.
+During development, I performed manual testing to ensure functionality, behavior, and responsive design across multiple browsers, primarily using Chrome and its Developer Tools. Additionally, the site was tested in Firefox and Safari. Each feature and modification was verified on Chrome, Firefox, and Safari, including tests at full-width resolution and with various device emulators for responsive design. The emulated devices included Nexus 5X, Nexus 10, Galaxy S5, iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X, iPad, and iPad Pro.
+
 #### HTML was validated using the Markup Validation Service provided by The World Wide Web Consortium: https://validator.w3.org/
 #### CSS was validated using the CSS Validation Service provided by The World Wide Web Consortium: https://jigsaw.w3.org/css-validator/
 
@@ -121,23 +121,8 @@ Fixed by pointed the right category name to the update function.
 
 ## Deployment
 
-0. [I created a git repository in GitHub for this project (enter address]
-1. From my browser, I went to heroku hosting platform and log in
-2. From the Heroku Dashboard, I ‘create new app’ => with the app name: online-cook-book-app
-3. In my Cloud9 IDE, I opened a console and installed the Heroku CLI =>
-4. Then I went to log in to my Heroku account and follow the prompts to create a new SSH public key =>  heroku login —interactive ( to create a connexion between my Cloud9 IDE and Heroku which will allow me to push my code using Git)
-5. After that I made some changes in my initial Flask application (app.py file) and README.md file and deploy them to Heroku using Git:
-$ git add .
-$ git commit -m “first commit"
-$ git push heroku master
+0. I created a git repository in GitHub for this project [tbi address]
 
-6. Next I add the requirements file to the project, to install the Python modules that are required for Heroku to build the app =>
-pseudo pip3 freeze --local > requirements.txt >> and push to heroku
-7. After that I added the Proctfile file to the project required for heroku to call the application >> and push to heroku
-8. From heroku platform / settings tab => I set the variables for the server instance to run the app >> Config Vars - IP: 0.0.0.0 / PORT: 5000
-9. Finally is deployed and I go to 'Open app' from Heroku GUI
-
-My app lives here: cook-book
 
 ## Credits
 http://stackoverflow.com/
