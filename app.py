@@ -6,10 +6,10 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
+# MongoDB Atlas connection
 app.config["MONGO_DBNAME"] = 'cook-book-db'
-app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@cluster2-6phdr.mongodb.net/cook-book-db?retryWrites=true&w=majority'
-
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+# Store MONGO_URI in environment variables for security
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
