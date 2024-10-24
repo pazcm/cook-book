@@ -1,29 +1,32 @@
-import os
 from flask import Flask, flash, render_template, redirect, request, url_for
-import logging
 from flask_pymongo import PyMongo
+from dotenv import load_dotenv
+import os
+# import logging
 from bson.objectid import ObjectId
+
+# Load environment variables from .env
+load_dotenv()
 
 app = Flask(__name__)
 
 # MongoDB Atlas connection
-app.config["MONGO_DBNAME"] = 'cook-book-db'
-# Store MONGO_URI in environment variables for security
+# app.config['MONGO_DBNAME'] = 'Cluster0-cookBook'
+# MONGO_URI store in environment for security
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-
 mongo = PyMongo(app)
 
-@app.route("/")
+@app.route('/')
 def home():
     try:
-        return render_template("index.html")
+        return render_template('home.html')
     except Exception as e:
-        app.logger.error(f"Error occurred: {str(e)}")
-        return "An error occurred", 500
+        app.logger.error(f'Error occurred: {str(e)}')
+        return 'An error occurred', 500
 
 @app.route('/get_recipes')
 def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    return render_template('recipes.html', recipes=mongo.db.recipes.find())
 
 
 # Add recipe
@@ -33,7 +36,7 @@ def add_recipe():
         difficulty=mongo.db.difficulty.find(), categories=mongo.db.categories.find(), cuisines=mongo.db.cuisines.find())
 
 # Insert recipe
-@app.route('/insert_recipe', methods=['POST', 'GET'])
+@app.route('/insert_recipe', methods=["POST", "GET"])
 def insert_recipe():
     print(request.form) 
     recipes = mongo.db.recipes
@@ -53,7 +56,6 @@ def insert_recipe():
         })
     return redirect(url_for('get_recipes'))
     
-
 # Edit recipe
 @app.route('/edit_recipe/<recipes_id>')
 def edit_recipe(recipes_id):
@@ -65,7 +67,7 @@ def edit_recipe(recipes_id):
                     categories=category_type, cuisines=cuisine, difficulty=difficulty)
                            
 # Update recipe
-@app.route('/update_recipe/<recipes_id>', methods=['GET', 'POST'])
+@app.route('/update_recipe/<recipes_id>', methods=["GET", "POST"])
 def update_recipe(recipes_id):
     
     recipes = mongo.db.recipes
@@ -89,15 +91,13 @@ def update_recipe(recipes_id):
 # Delete recipe
 @app.route('/delete_recipe/<recipes_id>')
 def delete_recipe(recipes_id):
-    mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
+    mongo.db.recipes.delete_one({'_id': ObjectId(recipes_id)})
     return redirect(url_for('get_recipes'))
-    
     
 # Recipe detail
 @app.route('/recipe_detail/<recipes_id>')
 def recipe_detail(recipes_id):
     return render_template('recipe-detail.html', recipe=mongo.db.recipes.find_one({'_id':ObjectId(recipes_id)}))
-
 
 # All recipes with filters
 @app.route('/all_recipes', methods=["GET", "POST"])
@@ -110,17 +110,17 @@ def all_recipes():
     filtered_results = mongo.db.recipes.find(filters)
     
     if request.method == "POST":
-        recipe_category = request.form.get("category_type")
+        recipe_category = request.form.get('category_type')
         if not recipe_category == None:
-            filters["category"] = recipe_category
+            filters['category'] = recipe_category
             
-        recipe_cuisine = request.form.get("cuisine")
+        recipe_cuisine = request.form.get('cuisine')
         if not recipe_cuisine == None:
-            filters["cuisine"] = recipe_cuisine
+            filters['cuisine'] = recipe_cuisine
         
-        recipe_difficulty = request.form.get("difficulty")
+        recipe_difficulty = request.form.get('difficulty')
         if not recipe_difficulty == None:
-            filters["difficulty"] = recipe_difficulty
+            filters['difficulty'] = recipe_difficulty
           
         return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
 
@@ -133,14 +133,14 @@ def search_box():
     if (search != ''):
         return redirect(url_for('results', q=search))
     else:
-        return render_template("recipes.html", recipes = mongo.db.recipes.find())
+        return render_template('recipes.html', recipes = mongo.db.recipes.find())
 
 # Search results
 @app.route('/results/<q>')
 def results(q):
     results = mongo.db.recipes.find(
         {'$text': {'$search': q}})
-    return render_template("results.html", recipes=results)
+    return render_template('results.html', recipes=results)
     
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
@@ -152,24 +152,41 @@ def list_recipes():
     filtered_results = mongo.db.recipes.find(filters)
     
     if request.method == "POST":
-        recipe_category = request.form.get("category_type")
+        recipe_category = request.form.get('category_type')
         if not recipe_category == None:
-            filters["category"] = recipe_category
+            filters['category'] = recipe_category
             
-        recipe_cuisine = request.form.get("cuisine")
+        recipe_cuisine = request.form.get('cuisine')
         if not recipe_cuisine == None:
-            filters["cuisine"] = recipe_cuisine
+            filters['cuisine'] = recipe_cuisine
         
-        recipe_difficulty = request.form.get("difficulty")
+        recipe_difficulty = request.form.get('difficulty')
         if not recipe_difficulty == None:
-            filters["difficulty"] = recipe_difficulty
+            filters['difficulty'] = recipe_difficulty
           
         return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
     else:
-       return render_template('index.html', categories=category, cuisines=cuisine, difficulty=difficulty)
+       return render_template('home.html', categories=category, cuisines=cuisine, difficulty=difficulty)
     
-    
+# check the connection to MongoDB
+@app.route('/test_db_connection')
+def test_db_connection():
+    try:
+        # Attempt to retrieve the first document from the 'recipes' collection
+        recipe = mongo.db.recipes.find_one()
+        if recipe:
+            return f"Connected to MongoDB! Found a recipe: {recipe['name']}", 200
+        else:
+            return "Connected to MongoDB, but no recipes found.", 200
+    except Exception as e:
+        return f"Failed to connect to MongoDB: {str(e)}", 500
+
+print("Mongo URI:", os.getenv("MONGO_URI"))
+
+# if __name__ == '__main__':
+#     app.run(host=os.environ.get('IP'),
+#             port=int(os.environ.get('PORT')),
+#             debug=True)
+
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+    app.run(debug=True)
