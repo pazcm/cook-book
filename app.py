@@ -69,10 +69,9 @@ def edit_recipe(recipes_id):
 # Update recipe
 @app.route('/update_recipe/<recipes_id>', methods=["GET", "POST"])
 def update_recipe(recipes_id):
-    
     recipes = mongo.db.recipes
-    recipes.update_one( {'_id': ObjectId(recipes_id)},
-        {
+
+    updated_fields = {
         'image': request.form.get('image'),
         'name': request.form.get('name'),
         'description': request.form.get('description'),
@@ -85,7 +84,14 @@ def update_recipe(recipes_id):
         'ingredients': request.form.get('ingredient'),
         'instructions': request.form.get('instructions'),
         'tips': request.form.get('tips')
-        })
+    }
+
+    # use $set to update only the provided fields | prevents the entire document from being replaced
+    recipes.update_one(
+        {'_id': ObjectId(recipes_id)},
+        {'$set': updated_fields}
+    )
+
     return redirect(url_for('get_recipes'))
 
 # Delete recipe
