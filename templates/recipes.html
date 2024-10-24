@@ -8,7 +8,9 @@
       <div class="col s12 m6 l3">
         <div class="card">
           <div class="card-image">
-            <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src="{{recipe.image}}" alt="{{recipe.name}}-image" ></a>
+            <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}">
+              <img class="card-img" src="{{recipe.image_url}}" alt="{{recipe.name}}-image" style="max-width: 100%; height: auto;">
+            </a>
           </div>
           <div class="card-recipe-info">
             <div class="card-title">

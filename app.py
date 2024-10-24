@@ -36,12 +36,14 @@ def add_recipe():
         difficulty=mongo.db.difficulty.find(), categories=mongo.db.categories.find(), cuisines=mongo.db.cuisines.find())
 
 # Insert recipe
-@app.route('/insert_recipe', methods=["POST", "GET"])
+@app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
+    image_url = request.form.get('image')
+    print(f"Image URL: {image_url}")  # Check if the correct URL is submitted
     print(request.form) 
     recipes = mongo.db.recipes
     recipes.insert_one(  {
-        'image': request.form.get('image'),
+        'image_url': request.form.get('image'),
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
@@ -72,7 +74,7 @@ def update_recipe(recipes_id):
     recipes = mongo.db.recipes
 
     updated_fields = {
-        'image': request.form.get('image'),
+        'image_url': request.form.get('image'),
         'name': request.form.get('name'),
         'description': request.form.get('description'),
         'author': request.form.get('author'),
