@@ -121,7 +121,7 @@ Fixed by pointed the right category name to the update function.
 
 ## Deployment
 
-0. I created a git repository in GitHub for this project [tbi address]
+0. This project is deployed on vercel using Git.
 
 
 ## Credits
@@ -140,8 +140,17 @@ https://www.mongodb.com/blog
 ### Content / Media
 The images and some content was extracted around the web, from different pages such us https://www.tasteatlas.com/ for testing/studying purpose, no for production or comercial uses.
 
-#### Note:
-There was some changes/variations from the initial wireframes, such as the placement of the Logo or the kind of Filter election which was modified for a better user experience.
-
 ### Acknowledgements
 Thanks to my Mentor for the feedback and help during the development and many Thanks too to the Tutor support from Code Institute for their help with several issues.
+
+
+#### Note:
+There was some changes/variations from the initial wireframes, such as the placement of the Logo or the kind of Filter election which was modified for a better user experience.
+I'm using a virtual environment and keeping my dependencies isolated, rather than installing to the system Python.
+
+### cook-book upgrade 0.1
+The main reason to upgrade this project was because I decided to move it to 'vercel' (since 'heroku' stop giving free hosting,...) and
+I had to deal with upper Python versions. Moreover, the cluster in MongoDB Atlas was disable, so I created a new MongoDB database for this project.
+.
+.
+.

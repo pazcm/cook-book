@@ -3,6 +3,3 @@ https:/
 .vercel
 .env
 venv/
-# tbr
-app-test.py
-test-folder/
