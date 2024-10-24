@@ -71,7 +71,7 @@ def edit_recipe(recipes_id):
 def update_recipe(recipes_id):
     
     recipes = mongo.db.recipes
-    recipes.update( {'_id': ObjectId(recipes_id)},
+    recipes.update_one( {'_id': ObjectId(recipes_id)},
         {
         'image': request.form.get('image'),
         'name': request.form.get('name'),

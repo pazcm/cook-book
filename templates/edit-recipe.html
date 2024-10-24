@@ -5,8 +5,8 @@
       <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12 recipe-form">
         <div class="row">
           <div class="input-field col s6">
-            <input type="text" name="image" id="image" placeholder="Add image URL address" value="{{recipes.image}}" required>
-            <label for="image">Recipe Image</label>
+            <input type="text" name="image" id="image" placeholder="Add URL address" value="{{recipes.image}}" required>
+            <label for="image">Recipe Image URL</label>
           </div>
           <div class="input-field col s6">
             <input id="recipe_name" name="name" type="text" placeholder="Title" value="{{recipes.name}}" class="validate" required>
