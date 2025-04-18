@@ -122,7 +122,6 @@ def all_recipes():
     cuisine = db.cuisines.find()
     difficulty = db.difficulty.find()
     filters = {}
-    filtered_results = db.recipes.find(filters)
     
     if request.method == "POST":
         recipe_category = request.form.get('category_type')
@@ -136,6 +135,11 @@ def all_recipes():
         recipe_difficulty = request.form.get('difficulty')
         if not recipe_difficulty == None:
             filters['difficulty'] = recipe_difficulty
+
+        # Query after building the filters
+        filtered_results = db.recipes.find(filters)
+        print("Filtered results:", filtered_results)
+
           
         return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
 
@@ -181,6 +185,7 @@ def list_recipes():
         
         # Query after building the filters
         filtered_results = db.recipes.find(filters)
+        print("Filtered results:", filtered_results)
           
         return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
     else:
