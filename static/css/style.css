@@ -14,19 +14,16 @@ body {
 nav .nav-wrapper {
   background-color: #f8bbd0;
   margin-right: 0;
+  display: flex;
+  justify-content: space-between;
   
 }
 
 .logo-nav {
-  width: 60%;
+  width: 120px;
   height: auto;
+  max-height: 56px;
   
-}
-
-.brand-logo {
-  top: 0;
-  width: 50%;
-   
 }
 
 .title {
@@ -162,7 +159,6 @@ a:hover .recipe-image {
   bottom: -20px;
   
 }
-
 
 .btn-floating, .btn {
   background-color:  #c0c0c0 !important;
@@ -453,8 +449,6 @@ textarea {
 }
 
 
-
-
 /* -- Media Queries -- */
 
 @media (min-width: 600px) { 
@@ -478,11 +472,10 @@ textarea {
   }
 
   /* -- Logo -- */  
-  .brand-logo {
+  /* .brand-logo {
     width: 25%;
      
-    }
-  
+    } */
   
 
   /* -- home Filter -- */
@@ -681,15 +674,7 @@ textarea {
   .row .col.l3 {
     width: 25%;
     
-  }
-  
-   /* -- Logo -- */  
-   
-  .brand-logo {
-    top: -1.5rem;
-   
-  }
-    
+  }    
 }
 
 
