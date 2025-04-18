@@ -156,6 +156,7 @@ def results(q):
     results = db.recipes.find(
         {'$text': {'$search': q}})
     return render_template('results.html', recipes=results)
+
     
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
@@ -164,7 +165,6 @@ def list_recipes():
     cuisine = db.cuisines.find()
     difficulty = db.difficulty.find()
     filters = {}
-    filtered_results = db.recipes.find(filters)
     
     if request.method == "POST":
         recipe_category = request.form.get('category_type')
@@ -178,6 +178,9 @@ def list_recipes():
         recipe_difficulty = request.form.get('difficulty')
         if not recipe_difficulty == None:
             filters['difficulty'] = recipe_difficulty
+        
+        # Query after building the filters
+        filtered_results = db.recipes.find(filters)
           
         return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
     else:
