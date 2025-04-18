@@ -150,7 +150,7 @@ def search_box():
     else:
         return render_template('recipes.html', recipes = db.recipes.find())
 
-# Search results
+# Search results (MongoDB needs a text index on the fields you want to search)
 @app.route('/results/<q>')
 def results(q):
     results = db.recipes.find(
