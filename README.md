@@ -1,20 +1,21 @@
 # Cook Book
 
 The purpose of this web app is to provide users with an online recipes book where they can add, update or delete their recipes so that it generates a wide variety of recipes from around the world to be referred.
-Users can get recipes using a search box by entering a recipe name or ingredient as well as through a filter where the recipes are sorted by category, cuisine and difficulty.
+Users can search for recipes using a search box by entering a recipe name or ingredient as well as through a filter where the recipes are sorted by category, cuisine and difficulty.
 
 The web app shows a home page with the filter, a general view of all the recipes added by the users to the cook book; a detail view per recipe displaying the name of the recipe, a picture, the category, the cuisine, the serves, the preparation time, the difficulty, the ingredients, the instructions and tips to prepare the recipe. Also there is a general view of all recipes from where the user can edit, delete and view the recipes.
 
 ## UX
 
-The web app was created to allow users to add and easily access cooking recipes from any device with internet connexion.
-It was designed following ‘mobile first’ approach, making use of Materialize framework for the look and feel.
-And built using Python for the logic and Flask to run the application.
+The web app was created to allow users to add and easily access cooking recipes from any device with internet connection.
+It was designed following ‘mobile first’ approach, using Materialize framework for the look and feel.
+The backend logic is implemented in Python using Flask.
 
-The recipes can be filtered by category, cuisine or difficulty, which results quick and easy to find a recipe. 
-The webapp has also a search box for this purpose, where a keyword can be typed to get a result page with the recipes.
-A link for adding a recipe is available widesite making possible to insert a recipe through a form filling the fields required.
-Edit or delete a recipe is also available for each recipe in the recipe detail view and in a general view.
+Recipes can be filtered by category, cuisine or difficulty, which results quick and easy to find a recipe. 
+A search box is also available where users can enter keywords to get matching results.
+A link for adding a recipe is available site-wide making possible to insert a recipe through a form filling the fields required.
+Editing or deleting a recipe is possible both from the general recipe view and the recipe detail page.
+
 
 ### Assets
 User stories >  https://github.com/pazcm/cook-book/pre-dev/user-stories.png
@@ -149,8 +150,8 @@ There was some changes/variations from the initial wireframes, such as the place
 I'm using a virtual environment and keeping my dependencies isolated, rather than installing to the system Python.
 
 ### cook-book upgrade 0.1
-The main reason to upgrade this project was because I decided to move it to 'vercel' (since 'heroku' stop giving free hosting,...) and
-I had to deal with upper Python versions. Moreover, the cluster in MongoDB Atlas was disable, so I created a new MongoDB database for this project.
+The upgrade was prompted by Heroku ending its free hosting tier. The project was migrated to Vercel and updated to support newer Python versions. A new MongoDB database was also created due to the previous cluster being disabled.
+
 .
 .
 .
