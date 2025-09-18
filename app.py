@@ -215,8 +215,8 @@ def test_db_connection():
 #             port=int(os.environ.get('PORT')),
 #             debug=True)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
 # def test_mongo_dns_lookup():
 #     try:
