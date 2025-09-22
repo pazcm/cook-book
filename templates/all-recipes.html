@@ -1,39 +1,65 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>All recipes view</h1>
-
-<div class="container get-recipes-container">
-  <div class="row">
-    {% for recipe in recipes %}
-    <div class="col s12 m6 l3">
-      <div class="card">
-        <div class="card-image">
-          <img class="card-img" src="{{recipe.image}}" alt="cookie image">
-            <span class="card-title card-recipe-title">{{recipe.name}}</span>
-              <a class="btn-floating waves-effect waves-light red"><i class="material-icons">favorite</i></a>
-              <a class="btn-floating waves-effect waves-light red"><i class="material-icons">share</i></a>
-              <a class="btn-floating waves-effect waves-light red"><i class="material-icons">bookmark_border</i></a>
+<h1 class="title">All recipes view</h1>
+  <div class="container all-recipes-container">
+    <h3>Recipes</h3>
+    <!--filter-->
+    <div class="top-filter-container">
+            <div class="row">
+                <form action="/list_recipes" class="filter-container filter-container-home" method="POST">
+                    <div class="form-row row-filter row-one-filter ">
+                        <div class="col s12 m3 l4 form-filter">
+                            <div class="input-field col s12 m12 l4">
+                                <select id="category" name="category_type">
+                                    <option value="" disabled selected>Category</option>
+                                    {% for category in categories %}
+                                    <option value="{{category.category_type}}">{{category.category_type}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col s12 m3 l4 form-filter">
+                            <div class="input-field col s12 m12 l4">
+                                <select id="cuisine" name="cuisine">
+                                    <option value="" disabled selected>Cuisine</option>
+                                    {% for cui in cuisines %}
+                                    <option value="{{cui.cuisine}}">{{cui.cuisine}}</option>
+                                    {% endfor %}
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col s12 m3 l4 form-filter">
+                            <div class="input-field col s12 m12 l4">
+                                <select id="difficulty" name="difficulty">
+                                    <option value="" disabled selected>Difficulty</option>
+                                    {% for dif in difficulty %}
+                                    <option value="{{dif.mode}}">{{dif.mode}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col s3 m2 l4 form-filter filter-btn filter-recipes-btn ">
+                            <input type="submit" value="Filter" class="btn waves-effect waves-light brown">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="card-recipe-info">
-          <p>Category: {{recipe.category}}</p>
+    <!--end filter-->
+    <div class="row">
+      {% for recipe in recipes %}
+      <div class="col s12 m6 l3">
+        <div class="card">
+          <div class="card-image">
+            <a href="{{ url_for('recipe_detail', recipes_id=recipe._id) }}"><img class="card-img" src="{{recipe.image_url}}" alt="{{recipe.name}}-image" ></a>
+          </div>
+          <div class="card-recipe-info">
+            <h4 class="card-title grey-text">{{recipe.name}}</h4>
+            <h6>{{recipe.cuisine}}</h6>
+          </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
-  
-  <!-- Pagination -->
-<div class="container pagination-container">
-  <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
-</div>
-            
 {% endblock %}

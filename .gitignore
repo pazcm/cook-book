@@ -1,2 +1,5 @@
 .c9/
 https:/
+.vercel
+.env
+venv/

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Google Icon Font -->
+        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Give+You+Glory&display=swap" rel="stylesheet">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <!-- Materialize -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- social icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- custom CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
         
         <title>Cook Book app</title>
+        
     </head>
     <body>
         <!-- Header - Navigation bar -->
@@ -22,37 +26,49 @@
                     <li>
                         <div class="user-view">
                             <div class="background">
-                                <img src="static/images/yellow-unsplash.jpg">
+                                <img src="static/images/yellow-unsplash.jpg" alt="yellow bg">
                             </div>
-                            <a href="#user"><img class="circle" src="static/images/toa-unsplash.jpg"></a>
-                            <a href="#name"><span class="white-text name">Mary Jane</span></a>
+                            <div class="user-image">
+                                <a href="#user"><img class="circle" src="static/images/chefs-hat.png" alt="chef hat"></a>
+                            </div>
+                            <div class="user-name">
+                                <a href="#name"><span class="white-text name">Mary Jane</span></a>
+                            </div>
                         </div>
                     </li>
-                    <li><a href="#!"><i class="material-icons">local_dining</i>Link Logo Cook Book</a></li>
+                    <li><a href="{{url_for('list_recipes')}}"><i class="material-icons">local_dining</i>Go to Cook Book</a></li>
                     <li>
                         <div class="divider"></div>
                     </li>
-                    <li><a class="subheader">Browse</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">My Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
+                    
+                        <li><a class="subheader">Browse</a></li>
+                        <li><a class="waves-effect" href="{{url_for('list_recipes')}}">Home</a></li>
+                        <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
+                        <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+                   
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <!--end sidenav-->
                     
                 <!--navbar menu-->
-                <a class="waves-effect brand-logo center" href="{{url_for('list_recipes')}}">Logo</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a class="waves-effect" href="{{url_for('list_recipes')}}">Home</a></li>
                     <li><a class="waves-effect" href="{{url_for('all_recipes')}}">Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('list_recipes')}}">My Recipes</a></li>
-                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipes</a></li>
+                    <li><a class="waves-effect" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                 </ul>
+                <!-- logo -->
+                <div class="logo-container">
+                    <a href="{{url_for('list_recipes')}}"><img class="logo logo-nav" src="{{url_for('static', filename='images/spoon.png')}}" alt="spoon logo"></a>
+                </div>
+                <!--search box-->
                 <div class="search-box">
-                    <form action="" class="browser-default right">
+                    <form action="{{url_for('search_box')}}" method="POST" class="browser-default right">
                         <input id="search-input" placeholder="Find a recipe" type="text" class="browser-default search-field" name="q" value="" autocomplete="off" aria-label="Search box">
                         <label for="search-input"><i class="material-icons search-icon active">search</i></label>
                     </form>
                 </div>
+                <!--end search box-->
+               
             </div>
             <!--end navebar menu-->
         </nav>
@@ -63,21 +79,20 @@
         <footer class="page-footer">
             <div class="container footer-container">
                 <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Footer Content</h5>
-                        <p class="grey-text text-lighten-4">Follow us!</p>
+                    <div class="col l6 s12 footer-social">
+                        <h5 class="grey-text text-lighten-3 footer-title">Follow us</h5>
+                        <p class="grey-text text-lighten-4 footer-content">Enjoy cooking!</p>
                         <div class="social-icons">
-                            <a class="btn-floating waves-effect waves-light red"><i class="fab fa-instagram"></i></a>
-                            <a class="btn-floating waves-effect waves-light red"><i class="fab fa-twitter"></i></a>
-                            <a class="btn-floating waves-effect waves-light red"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com" target="_bank" class="btn-floating waves-effect waves-light brown"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.twitter.com" target="_bank" class="btn-floating waves-effect waves-light brown"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.facebook.com" target="_bank" class="btn-floating waves-effect waves-light brown"><i class="fa fa-facebook"></i></a>
                         </div>
                     </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Links</h5>
-                        <ul>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <div class="col l4 offset-l2 s12 footer-links">
+                        <!--<h5 class="white-text">Links</h5>-->
+                        <ul class="links">
+                          <li><a class="white-text" href="{{url_for('list_recipes')}}">Home</a></li>
+                          <li><a class="white-text" href="{{url_for('add_recipe')}}">Add recipe</a></li>
                         </ul>
                     </div>
                 </div>
@@ -85,13 +100,11 @@
             <div class="footer-copyright">
                 <div class="container">
                 © 2019 Marta Paz
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="grey-text text-lighten-4 right" href="{{url_for('get_recipes')}}" target="_blank">See all recipes</a>
                 </div>
             </div>
         </footer>
             
-        
-        
         <!-- Fontawesome social icons -->
         <script src="https://kit.fontawesome.com/a7bfa3d133.js"></script>
         <!-- jQuery-->
@@ -99,9 +112,9 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Search box -->
-        <script type="text/javascript" src="static/js/search-box.js"></script>
+        <script src="static/js/search-box.js"></script>
         <!-- Collapsible Sidenav  -->
-        <script type="text/javascript">
+        <script>
             $(document).ready(function () {
                 $('.sidenav').sidenav();
             });
@@ -113,7 +126,7 @@
             });
         </script>
         <!-- Form select -->
-        <script type="text/javascript">
+        <script>
             $(document).ready(function(){
                 $('select').formSelect();
             });
