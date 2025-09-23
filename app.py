@@ -2,27 +2,22 @@ from flask import Flask, flash, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import os
-# # import logging
 from bson.objectid import ObjectId
-# import dns.resolver
 
-
+# Load environment variables
 load_dotenv()
+print(os.getenv('MONGO_URI'))
 
+# Initialize Flask app
 app = Flask(__name__)
 
+# Configure MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
 app.config["MONGO_URI"] = MONGO_URI
-# app.config["MONGO_DBNAME"] = "cookBookDB"
-print("Is Ok!! Loaded MONGO_URI:", MONGO_URI)
 
-# mongo = PyMongo(app)
-# print("Mongo DB Object:", mongo.db)  # DB not connected ??? (*)
-
+# Initialize MongoDB connection
 mongo = PyMongo(app)
 db = mongo.cx["cookBookDB"]  # access DB explicitly (*)
-print("OK!!! Database object:", db)
-
 
 @app.route('/')
 def home():
@@ -45,11 +40,8 @@ def add_recipe():
 # Insert recipe
 @app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
-    image_url = request.form.get('image')
-    print(f"Image URL: {image_url}")  # Check if the correct URL is submitted
-    print(request.form) 
     recipes = db.recipes
-    recipes.insert_one(  {
+    recipes.insert_one({
         'image_url': request.form.get('image'),
         'name': request.form.get('name'),
         'description': request.form.get('description'),
@@ -140,7 +132,6 @@ def all_recipes():
         filtered_results = db.recipes.find(filters)
         print("Filtered results:", filtered_results)
 
-          
         return render_template('results.html', recipes=filtered_results, categories=category, cuisines=cuisine, difficulty=difficulty)
 
     return render_template('all-recipes.html', recipes = db.recipes.find(), categories=category, cuisines=cuisine, difficulty=difficulty)
@@ -160,8 +151,7 @@ def results(q):
     results = db.recipes.find(
         {'$text': {'$search': q}})
     return render_template('results.html', recipes=results)
-
-    
+ 
 # Filters
 @app.route('/list_recipes', methods=["GET", "POST"])
 def list_recipes():
@@ -206,26 +196,9 @@ def test_db_connection():
     except Exception as e:
         return f"Failed to connect to MongoDB: {str(e)}", 500
 
-# print("Mongo URI:", os.getenv("MONGO_URI"))
-# print("!!! Loaded MONGO_URI:", os.getenv("MONGO_URI"))
-
-
-# if __name__ == '__main__':
-#     app.run(host=os.environ.get('IP'),
-#             port=int(os.environ.get('PORT')),
-#             debug=True)
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-# def test_mongo_dns_lookup():
-#     try:
-#         answers = dns.resolver.resolve('_mongodb._tcp.cluster0-cookbook.6dnti.mongodb.net', 'SRV')
-#         print("✅ DNS lookup succeeded. SRV records found:")
-#         for answer in answers:
-#             print(answer.to_text())
-#     except Exception as e:
-#         print("❌ DNS lookup failed:", e)
-
-# # Call the function
-# test_mongo_dns_lookup()
+if __name__ == '__main__':
+    app.run(
+        host=os.environ.get('IP', '0.0.0.0'),
+        port=int(os.environ.get('PORT', 5000)),
+        debug=True
+    )
