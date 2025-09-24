@@ -3,13 +3,64 @@ from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import os
 from bson.objectid import ObjectId
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash
+from models import User
 
 # Load environment variables
 load_dotenv()
-print(os.getenv('MONGO_URI'))
 
 # Initialize Flask app
 app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-here')
+
+# Initialize Flask-Login
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'  # Redirect to 'login' view if not authenticated
+
+@login_manager.user_loader
+def load_user(user_id):
+    user = db.users.find_one({"_id": ObjectId(user_id)})
+    if not user:
+        return None
+    return User(user)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        users = db.users
+        existing_user = users.find_one({'email': request.form['email']})
+
+        if existing_user is None:
+            hashpass = generate_password_hash(request.form['password'])
+            users.insert_one({
+                'name': request.form['name'],
+                'email': request.form['email'],
+                'password': hashpass
+            })
+            return redirect(url_for('login'))
+        return 'Email already registered'
+    return render_template('register.html')
+    
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        users = db.users
+        login_user = users.find_one({'email': request.form['email']})
+
+        if login_user and User.validate_login(login_user['password'], 
+                                            request.form['password']):
+            user_obj = User(login_user)
+            login_user(user_obj)
+            return redirect(url_for('home'))
+        return 'Invalid email/password combination'
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
 
 # Configure MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
