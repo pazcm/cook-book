@@ -84,12 +84,14 @@ def get_recipes():
 
 # Add recipe
 @app.route('/add_recipe')
+@login_required
 def add_recipe():
     return render_template('add-recipe.html',
         difficulty=db.difficulty.find(), categories=db.categories.find(), cuisines=db.cuisines.find())
 
 # Insert recipe
 @app.route('/insert_recipe', methods=["POST"])
+@login_required
 def insert_recipe():
     recipes = db.recipes
     recipes.insert_one({
@@ -110,9 +112,14 @@ def insert_recipe():
     
 # Edit recipe
 @app.route('/edit_recipe/<recipes_id>')
+@login_required
 def edit_recipe(recipes_id):
-    the_recipe =  db.recipes.find_one({'_id': ObjectId(recipes_id)})
-    category_type =  db.categories.find()
+    the_recipe = db.recipes.find_one({'_id': ObjectId(recipes_id)})
+    # Check if user is the author of the recipe
+    if the_recipe and the_recipe.get('author') != current_user.user_data.get('name'):
+        flash('You can only edit your own recipes')
+        return redirect(url_for('get_recipes'))
+    category_type = db.categories.find()
     cuisine = db.cuisines.find()
     difficulty = db.difficulty.find()
     return render_template('edit-recipe.html', recipes=the_recipe,
@@ -120,6 +127,7 @@ def edit_recipe(recipes_id):
                            
 # Update recipe
 @app.route('/update_recipe/<recipes_id>', methods=["GET", "POST"])
+@login_required
 def update_recipe(recipes_id):
     recipes = db.recipes
 
@@ -148,8 +156,15 @@ def update_recipe(recipes_id):
 
 # Delete recipe
 @app.route('/delete_recipe/<recipes_id>')
+@login_required
 def delete_recipe(recipes_id):
+    recipe = db.recipes.find_one({'_id': ObjectId(recipes_id)})
+    # Check if user is the author of the recipe
+    if recipe and recipe.get('author') != current_user.user_data.get('name'):
+        flash('You can only delete your own recipes')
+        return redirect(url_for('get_recipes'))
     db.recipes.delete_one({'_id': ObjectId(recipes_id)})
+    flash('Recipe successfully deleted')
     return redirect(url_for('get_recipes'))
     
 # Recipe detail
