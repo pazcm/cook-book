@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title center-align">Create Account</span>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="card-panel red lighten-4">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <form action="{{ url_for('register') }}" method="POST">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">person</i>
+                                <input id="name" name="name" type="text" class="validate" required>
+                                <label for="name">Full Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">email</i>
+                                <input id="email" name="email" type="email" class="validate" required>
+                                <label for="email">Email</label>
+                                <span class="helper-text" data-error="Please enter a valid email"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock</i>
+                                <input id="password" name="password" type="password" class="validate" 
+                                       minlength="6" required>
+                                <label for="password">Password</label>
+                                <span class="helper-text">Minimum 6 characters</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_outline</i>
+                                <input id="confirm_password" name="confirm_password" type="password" 
+                                       class="validate" required>
+                                <label for="confirm_password">Confirm Password</label>
+                            </div>
+                        </div>
+                        <div class="row center-align">
+                            <button class="btn waves-effect waves-light" type="submit">
+                                Register <i class="material-icons right">person_add</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-action center-align">
+                    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var password = document.getElementById('password');
+    var confirm = document.getElementById('confirm_password');
+
+    function validatePassword() {
+        if (password.value != confirm.value) {
+            confirm.setCustomValidity("Passwords don't match");
+        } else {
+            confirm.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm.onkeyup = validatePassword;
+});
+</script>
+{% endblock %}
+{% endblock %}
