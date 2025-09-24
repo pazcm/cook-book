@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import os
 from bson.objectid import ObjectId
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from models import User
 
 # Load environment variables
@@ -12,7 +12,10 @@ load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-here')
+# Configure secret key for session management
+app.secret_key = os.getenv('SECRET_KEY')
+if not app.secret_key:
+    raise ValueError("No Flask SECRET_KEY set")
 
 # Initialize Flask-Login
 login_manager = LoginManager()
@@ -46,15 +49,21 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        users = db.users
-        login_user = users.find_one({'email': request.form['email']})
-
-        if login_user and User.validate_login(login_user['password'], 
-                                            request.form['password']):
-            user_obj = User(login_user)
-            login_user(user_obj)
-            return redirect(url_for('home'))
-        return 'Invalid email/password combination'
+        form = request.form
+        email = form.get('email')
+        password = form.get('password')
+        
+        user_data = mongo.db.users.find_one({'email': email})
+        if user_data:
+            user = User(user_data)
+            if User.validate_login(user.password, password):
+                login_user(user)
+                return redirect(url_for('home'))
+        
+        flash('Invalid email or password')
+        return redirect(url_for('login'))
+    
+    # Handle GET request
     return render_template('login.html')
 
 @app.route('/logout')
