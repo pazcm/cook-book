@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Give+You+Glory&display=swap" rel="stylesheet">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <!-- Materialize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- social icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/authentication.css') }}" type="text/css" />
+        
+        <title>Cook Book app</title>
+    </head>
+    <body>
+        <div class="auth-container"><h1 class="app-title center-align">Cook Book</h1>
+            {% block content %}{% endblock %}
+            <div class="footer-copyright">
+                <div class="container right-align">
+                <span class="copyright">© 2019 Marta Paz</span>
+                <a class="" href="{{url_for('list_recipes')}}" target="_blank">Cook Book</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+</html>
