@@ -97,9 +97,15 @@ input {
   
 }
 
+.red.lighten-4 {
+  color: red;
+}
+
 .footer-copyright {
   padding-top: 70px;
 }
+
+
 
 
 

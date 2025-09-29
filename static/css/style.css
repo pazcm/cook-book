@@ -225,6 +225,10 @@ a:hover .recipe-image {
   
 }
 
+.user-image img {
+  margin: 0 auto;
+}
+
 .sidenav {
   background-color: #fffde7;
 }

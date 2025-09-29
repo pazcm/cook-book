@@ -31,9 +31,14 @@
                             <div class="user-image">
                                 <a href="#user"><img class="circle" src="static/images/chefs-hat.png" alt="chef hat"></a>
                             </div>
+                            {% if session.get("name") %}
                             <div class="user-name">
-                                <a href="#name"><span class="white-text name">Mary Jane</span></a>
+                                <a href="#name"><span class="white-text name center">"{{ session["name"] }}</span></a>
                             </div>
+                            {% else %}
+                                <div class="sidenav-item"><a href="{{ url_for('login') }}">Login</a></div>
+                                <div class="sidenav-item"><a href="{{ url_for('register') }}">Register</a></div>
+                             {% endif %}
                         </div>
                     </li>
                     <li><a href="{{url_for('list_recipes')}}"><i class="material-icons">local_dining</i>Go to Cook Book</a></li>
