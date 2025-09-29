@@ -10,7 +10,6 @@ body {
   
 }
 
-
 nav .nav-wrapper {
   background-color: #f8bbd0;
   margin-right: 0;
@@ -22,13 +21,19 @@ nav .nav-wrapper {
 .auth-wrapper {
   display: flex;
   align-items: center;
-  padding: 20px;
 
 }
 
-.login, .signup {
+.login, .signup, .session, .loggout {
+  color: white;
   font-weight: 500;
-  margin-right: 10px;
+  padding: 0 15px;
+
+}
+
+.login:hover, .signup:hover, .loggout:hover {
+  background-color: rgba(0,0,0,0.1);
+  padding: 0 15px;
 
 }
 
@@ -353,7 +358,6 @@ ol {
   bottom: 60px;
   position: relative;
   
-  
 }
 
 .recipe-img-icons-btn {
@@ -435,14 +439,12 @@ textarea {
   
 }
 
-
 .links {
   display: flex;
   justify-content: space-between;
   align-content: flex-end;
   
 }
-
 
 .links a:hover {
   color: #eee !important;
@@ -675,7 +677,6 @@ textarea {
   }
 
 }
-
 
 @media (min-width:1025px) {
   .container-recipe-img-icons-btn {

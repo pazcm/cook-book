@@ -70,6 +70,10 @@
                 <!--end search box-->
                 <!--authentication-->
                 <div class="auth-wrapper">
+                    {% if session.get("name") %}
+                    <span class="session">Welcome, {{ session["name"] }}!</span>
+                    <span class="loggout"><a href="{{ url_for('logout') }}">Logout</a></span>
+                    {% else %}
                     <span class="login">
                         <a href="{{url_for('login')}}" class="login-link">
                         Login
@@ -80,6 +84,7 @@
                         Sign Up
                         </a>
                     </span>
+                    {% endif %}
                 </div>
                 <!--end authentication-->
             </div>

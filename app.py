@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, redirect, request, url_for
+from flask import Flask, flash, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import os
@@ -55,12 +55,15 @@ def login():
         
         user_data = mongo.db.users.find_one({'email': email})
         if user_data:
-            user = User(user_data)
-            if User.validate_login(user.password, password):
-                login_user(user)
+            user = User(user_data) # in User class for flask-login
+
+            if User.validate_login(user_data["password"], password):
+                login_user(user) # flask-login login
+                session["name"] = user_data["name"] # store name in session
+                flash("Welcome back, " + user_data["name"] + "!", "success")
                 return redirect(url_for('home'))
         
-        flash('Invalid email or password')
+        flash('Invalid email or password', 'danger')
         return redirect(url_for('login'))
     
     # Handle GET request
@@ -69,7 +72,9 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    session.clear() 
+    flash("You have been logged out.", "info")
+    return redirect(url_for('login'))
 
 # Configure MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
