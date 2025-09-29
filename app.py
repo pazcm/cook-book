@@ -76,6 +76,38 @@ def logout():
     flash("You have been logged out.", "info")
     return redirect(url_for('login'))
 
+@app.route('/profile')
+@login_required
+def profile():
+    # Pull info from MongoDB using current user
+    user_data = mongo.db.users.find_one({"email": current_user.email})
+    
+    if not user_data:
+        flash("User not found", "danger")
+        return redirect(url_for("home"))
+    
+    return render_template("profile.html", user=user_data)
+
+@app.route('/profile/edit', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    user_data = mongo.db.users.find_one({"email": current_user.email})
+    
+    if request.method == 'POST':
+        new_name = request.form.get("name")
+        new_bio = request.form.get("bio")
+
+        mongo.db.users.update_one(
+            {"email": current_user.email},
+            {"$set": {"name": new_name, "bio": new_bio}}
+        )
+
+        session["name"] = new_name  # keep navbar updated
+        flash("Profile updated successfully!", "success")
+        return redirect(url_for("home"))
+
+    return render_template("edit_profile.html", user=user_data)
+
 # Configure MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
 app.config["MONGO_URI"] = MONGO_URI

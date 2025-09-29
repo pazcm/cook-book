@@ -24,14 +24,14 @@ nav .nav-wrapper {
 
 }
 
-.login, .signup, .session, .loggout {
+.login, .signup, .session, .logout {
   color: white;
   font-weight: 500;
   padding: 0 15px;
 
 }
 
-.login:hover, .signup:hover, .loggout:hover {
+.login:hover, .signup:hover, .session:hover, .logout:hover {
   background-color: rgba(0,0,0,0.1);
   padding: 0 15px;
 

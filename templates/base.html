@@ -28,10 +28,10 @@
                             <div class="background">
                                 <img src="static/images/yellow-unsplash.jpg" alt="yellow bg">
                             </div>
-                            <div class="user-image">
-                                <a href="#user"><img class="circle" src="static/images/chefs-hat.png" alt="chef hat"></a>
-                            </div>
                             {% if session.get("name") %}
+                             <div class="user-image">
+                                <a href="{{ url_for('profile') }}"><img class="circle" src="static/images/chefs-hat.png" alt="chef hat"></a>
+                            </div>
                             <div class="user-name">
                                 <a href="#name"><span class="white-text name center">"{{ session["name"] }}</span></a>
                             </div>
@@ -76,8 +76,8 @@
                 <!--authentication-->
                 <div class="auth-wrapper">
                     {% if session.get("name") %}
-                    <span class="session">Welcome, {{ session["name"] }}!</span>
-                    <span class="loggout"><a href="{{ url_for('logout') }}">Logout</a></span>
+                    <a href="{{ url_for('profile') }}" class="session">Welcome, {{ session["name"] }}!</a>
+                    <span class="logout"><a href="{{ url_for('logout') }}">Logout</a></span>
                     {% else %}
                     <span class="login">
                         <a href="{{url_for('login')}}" class="login-link">
