@@ -1,8 +1,8 @@
 {% extends "auth_base.html" %}
 {% block content %}
 <div class="profile-container">
-  <h3 class="profile-title center-align">{{ session["name"] }} Profile</h3>
-  <p><strong>Name:</strong> {{ user.name }}</p>
+  <h3 class="profile-title center-align">{{ session["author"] }} Profile</h3>
+  <p><strong>Name:</strong> {{ user.author }}</p>
   <p><strong>Email:</strong> {{ user.email }}</p>
   {% if user.bio %}
     <p><strong>Bio:</strong> {{ user.bio }}</p>

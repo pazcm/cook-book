@@ -7,6 +7,7 @@ class User(UserMixin):
         self._id = user_data['_id']
         self.email = user_data['email']
         self.password = user_data['password']
+        self.author = user_data.get('author') # author name stored here instead store author name in session
     
     @staticmethod
     def validate_login(password_hash, password):

@@ -38,7 +38,7 @@ def register():
         if existing_user is None:
             hashpass = generate_password_hash(request.form['password'])
             users.insert_one({
-                'name': request.form['name'],
+                'author': request.form['author'],
                 'email': request.form['email'],
                 'password': hashpass
             })
@@ -59,8 +59,8 @@ def login():
 
             if User.validate_login(user_data["password"], password):
                 login_user(user) # flask-login login
-                session["name"] = user_data["name"] # store name in session
-                flash("Welcome back, " + user_data["name"] + "!", "success")
+                session["author"] = user.author # now stored in User class
+                flash("Welcome back, " + user.author + "!", "success")
                 return redirect(url_for('home'))
         
         flash('Invalid email or password', 'danger')
@@ -94,15 +94,15 @@ def edit_profile():
     user_data = mongo.db.users.find_one({"email": current_user.email})
     
     if request.method == 'POST':
-        new_name = request.form.get("name")
+        new_author = request.form.get("author")
         new_bio = request.form.get("bio")
 
         mongo.db.users.update_one(
             {"email": current_user.email},
-            {"$set": {"name": new_name, "bio": new_bio}}
+            {"$set": {"author": new_author, "bio": new_bio}}
         )
 
-        session["name"] = new_name  # keep navbar updated
+        session["author"] = new_author  # keep navbar updated
         flash("Profile updated successfully!", "success")
         return redirect(url_for("home"))
 
@@ -162,7 +162,7 @@ def insert_recipe():
 def edit_recipe(recipes_id):
     the_recipe = db.recipes.find_one({'_id': ObjectId(recipes_id)})
     # Check if user is the author of the recipe
-    if the_recipe and the_recipe.get('author') != current_user.user_data.get('name'):
+    if the_recipe and the_recipe.get('author') != current_user.author:
         flash('You can only edit your own recipes')
         return redirect(url_for('get_recipes'))
     category_type = db.categories.find()
@@ -206,7 +206,7 @@ def update_recipe(recipes_id):
 def delete_recipe(recipes_id):
     recipe = db.recipes.find_one({'_id': ObjectId(recipes_id)})
     # Check if user is the author of the recipe
-    if recipe and recipe.get('author') != current_user.user_data.get('name'):
+    if recipe and recipe.get('author') != current_user.author:
         flash('You can only delete your own recipes')
         return redirect(url_for('get_recipes'))
     db.recipes.delete_one({'_id': ObjectId(recipes_id)})

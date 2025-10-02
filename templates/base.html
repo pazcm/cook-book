@@ -28,12 +28,12 @@
                             <div class="background">
                                 <img src="static/images/yellow-unsplash.jpg" alt="yellow bg">
                             </div>
-                            {% if session.get("name") %}
+                            {% if session.get("author") %}
                              <div class="user-image">
                                 <a href="{{ url_for('profile') }}"><img class="circle" src="static/images/chefs-hat.png" alt="chef hat"></a>
                             </div>
                             <div class="user-name">
-                                <a href="#name"><span class="white-text name center">"{{ session["name"] }}</span></a>
+                                <a href="#name"><span class="white-text name center">"{{ session["author"] }}</span></a>
                             </div>
                             {% else %}
                                 <div class="sidenav-item"><a href="{{ url_for('login') }}">Login</a></div>
@@ -75,8 +75,8 @@
                 <!--end search box-->
                 <!--authentication-->
                 <div class="auth-wrapper">
-                    {% if session.get("name") %}
-                    <a href="{{ url_for('profile') }}" class="session">Welcome, {{ session["name"] }}!</a>
+                    {% if session.get("author") %}
+                    <a href="{{ url_for('profile') }}" class="session">Welcome, {{ session["author"] }}!</a>
                     <span class="logout"><a href="{{ url_for('logout') }}">Logout</a></span>
                     {% else %}
                     <span class="login">
